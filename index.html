@@ -2,196 +2,1265 @@
 <html lang="zh-CN"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DEEPLTRADING · 2026-10-22</title>
-<style>
-:root{--bg:#0b0e13;--card:#121722;--line:#1e2634;--txt:#e6edf7;--dim:#8a97ab;--up:#37d67a;--down:#ff5c5c;--acc:#5b9dff;--warn:#ffd166}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.5 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif}
-.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
-header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
-h1{font-size:22px;letter-spacing:2px;margin:0;font-weight:700}
-.badge{background:#172033;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12px;color:var(--dim)}
-.badge.live{color:var(--up);border-color:#1f4a33}
-nav{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0 18px;font-size:13px}
-nav a{color:var(--dim);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent}
-nav a:hover{color:var(--txt);border-color:var(--acc)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-.card .k{font-size:11px;color:var(--dim);letter-spacing:1px;text-transform:uppercase}
-.card .v{font-size:20px;font-weight:600;margin-top:4px}
-.card .s{font-size:11px;color:var(--dim);margin-top:2px}
-section{margin-top:30px}
-h2{font-size:13px;letter-spacing:2px;color:var(--acc);margin:0 0 10px;font-weight:600}
-h2 small{color:var(--dim);letter-spacing:0;font-weight:400;font-size:11px;margin-left:8px}
-.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:760px}
-th{text-align:right;padding:9px 10px;color:var(--dim);font-weight:500;font-size:11px;letter-spacing:.5px;border-bottom:1px solid var(--line);white-space:nowrap}
-th:nth-child(1),th:nth-child(2),th:nth-child(3){text-align:left}
-td{padding:8px 10px;border-bottom:1px solid #161c28;white-space:nowrap;vertical-align:top}
-tr:last-child td{border-bottom:none}
-.num{text-align:right;font-variant-numeric:tabular-nums}
-.dim{color:var(--dim)}
-.rk{color:var(--dim);width:34px}
-.cd{font-weight:600;color:#fff}
-.ind{font-size:10px;color:var(--dim);font-weight:400;margin-top:1px}
-.nm{color:var(--dim);max-width:250px;overflow:hidden;text-overflow:ellipsis}
-.fl{margin-left:6px;font-size:10px;color:var(--warn);border:1px solid #4a3a12;border-radius:6px;padding:1px 5px;font-weight:400}
-.rs{color:var(--dim);font-size:11px;max-width:260px;white-space:normal;line-height:1.5}
-.ok{color:var(--up)} .warn{color:var(--warn)} .bad{color:var(--down)} .miss{color:var(--down)}
-.secgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.sec{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.sh{display:flex;justify-content:space-between;align-items:baseline}
-.sn{font-weight:600} .sv{color:var(--acc);font-variant-numeric:tabular-nums}
-.bar{height:5px;background:#1b2230;border-radius:3px;margin:8px 0 6px;overflow:hidden;min-width:60px}
-.bar i{display:block;height:100%;background:linear-gradient(90deg,#2f6bd8,#5b9dff)}
-.sm{font-size:11px;color:var(--dim)}
-.note{color:var(--dim);font-size:12px;margin-top:8px;line-height:1.7}
-.flag{background:#1a1420;border:1px solid #3a2436;border-radius:12px;padding:14px 16px;color:#e9c7d6;font-size:12px;line-height:1.8;margin-top:14px}
-.chart{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px 4px;margin-bottom:12px}
-.pending{background:#141a12;border:1px solid #26331f;border-radius:12px;padding:14px 16px;color:#c7dcb8;font-size:12px;line-height:1.8}
-footer{margin-top:34px;color:var(--dim);font-size:11px;line-height:1.8;border-top:1px solid var(--line);padding-top:14px}
-a{color:var(--acc)}
-</style></head><body><div class="wrap">
-<header>
-  <h1>DEEPLTRADING</h1>
-  <span class="badge live">LIVE</span>
-  <span class="badge">交易日 2026-10-22</span>
-  <span class="badge">892 只标的</span>
-  <span class="badge" style="margin-left:auto">生成于 2026-10-23 20:41</span>
-</header>
-<nav>
-  <a href="#market">Market</a><a href="#champion">Champion</a><a href="#quality">Signal Quality</a>
-  <a href="#ladder">IC Ladder</a><a href="#age">Data Age</a><a href="#top">Top 30</a>
-  <a href="#weights">Weights</a><a href="#guard">Guards</a><a href="#sector">Sector</a>
-  <a href="#phase">Wyckoff</a><a href="#burst">Burst</a><a href="#risk">Risk</a><a href="#avoid">Avoid</a><a href="#model">Model</a>
-</nav>
+<title>deep ltrading · 2026-10-22</title>
+<style>:root{--bg:#F1F2F4;--paper:#FFFFFF;--ink:#15171A;--muted:#6B7078;--line:#D9DDE3;--soft:#EEF0F3;--black:#15171A;--white:#FFFFFF;--red:#E33D3D;--red-dark:#B52B32;--green:#197A55;--amber:#B56A13;--purple:#6955B8;--blue:#1769AA}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{font-family:'Space Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);padding:28px 32px 44px;margin:0;-webkit-font-smoothing:antialiased}
+.hd{position:relative;display:flex;align-items:flex-end;gap:18px;max-width:1680px;margin:0 auto;padding:0 0 18px;border-bottom:1px solid var(--ink)}
+.hd:before{content:'';width:12px;height:12px;background:var(--red);display:block;position:absolute;right:0;bottom:-6px}
+.hd h1{font-family:'Space Mono',monospace;font-size:19px;font-weight:700;letter-spacing:3px;text-transform:uppercase;line-height:1}
+.hd .dt{font-family:'Space Mono',monospace;font-size:46px;font-weight:700;letter-spacing:-2px;line-height:.85}
+.hd .tg{margin-left:auto;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;background:var(--ink);color:var(--white);padding:7px 10px;letter-spacing:2px}
+.card{max-width:1680px;margin:0 auto 18px;background:var(--paper);border:1px solid var(--line);box-shadow:0 2px 0 rgba(21,23,26,.04)}
+.ch{display:flex;align-items:center;min-height:46px;font-family:'Space Mono',monospace;font-size:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--black);color:var(--white);padding:11px 16px;border-left:5px solid var(--red)}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-color:var(--muted) var(--soft);scrollbar-width:thin;padding:0 12px}
+table{border-collapse:collapse;width:100%;font-size:18px;white-space:nowrap}
+th{background:var(--black);color:var(--white);padding:11px 14px;text-align:center;font-family:'Space Mono',monospace;font-size:16px;font-weight:700;letter-spacing:1px;position:sticky;top:var(--nav-h);z-index:2;min-width:60px;border-right:1px solid rgba(255,255,255,.12)}
+th:last-child{border-right:0}
+td{padding:12px 14px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;text-align:center;min-width:60px;transition:background .15s ease}
+tbody tr:hover td{background:#F7F8FA}
+td.sym{font-weight:700;font-size:18px;letter-spacing:.3px;text-align:center;min-width:132px;width:132px;vertical-align:middle}
+td.sym .ticker{display:block;font-family:'Space Mono',monospace;color:var(--ink);line-height:1.25}
+td.sym .industry{display:block;width:auto;max-width:150px;margin:3px auto 0;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:0;line-height:1.15;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+td.num,td.pct{font-family:'Space Mono',monospace;text-align:center;min-width:80px;vertical-align:middle}
+td.trend{min-width:100px;width:100px;padding:6px 12px;text-align:center;vertical-align:middle}
+td.trend svg{display:block;margin:0 auto}
+th.trend-head{min-width:100px;width:100px;text-align:center!important}
+.sig-summary th{font-size:15px;letter-spacing:1.5px;padding:12px 14px;vertical-align:middle}
+.top-card{border-top:4px solid var(--red)}
+.top-card .ch{display:flex;align-items:center;gap:12px}
+.top-scroll{max-height:520px;overflow-y:auto;overflow-x:auto}
+.top-scroll::-webkit-scrollbar{width:6px}
+.top-scroll::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}
+.ru-card{border-top:4px solid #1565C0}
+.ru-bar{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;align-items:center}
+.ru-pill{padding:4px 10px;border:1px solid var(--line);background:#fff;font-size:14px;cursor:pointer;letter-spacing:.5px;transition:all .15s}
+.ru-pill.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ru-pill:hover{background:#e8e8e8}
+.ru-pill.active:hover{background:#333}
+.ru-search{border:1px solid var(--line);padding:5px 10px;font-size:15px;width:200px;font-family:'Space Mono',monospace}
+.ru-search:focus{outline:none;border-color:var(--ink)}
+.ru-select{border:1px solid var(--line);background:#fff;padding:5px 8px;font-size:14px;font-family:'Space Mono',monospace;color:var(--ink)}
+.ru-select:focus{outline:none;border-color:var(--ink)}
+.ru-count{font-size:13px;color:var(--muted);margin-left:auto;letter-spacing:.5px}
+.ru-table-wrap{max-height:600px;overflow-y:auto;overflow-x:auto}
+.ru-table-wrap::-webkit-scrollbar{width:6px}
+.ru-table-wrap::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}
+.ru-table{width:100%;min-width:900px;table-layout:auto}
+.ru-table th{position:sticky;top:var(--nav-h);background:#fff;color:var(--ink);border-right:1px solid var(--line);z-index:3}
+.top-scroll th,.tw th,.ru-table-wrap th{top:0!important}
+.ru-table tbody tr.hidden{display:none}
+.ru-symbol{text-align:left!important;min-width:260px}
+.ru-code{display:block;font:700 14px 'Space Mono',monospace;color:var(--ink);line-height:1.25}
+.ru-subline{display:block;color:var(--muted);font-size:14px;line-height:1.35;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:320px}
+.ru-rank{font:700 12px 'Space Mono',monospace;color:var(--muted);width:62px}
+.ru-status{display:inline-block;font-weight:700;font-size:14px;padding:3px 7px;border-radius:3px;white-space:nowrap}
+.ru-status.exec{color:#1B5E20;background:#E8F5E9}.ru-status.observe{color:#01579B;background:#E1F5FE}.ru-status.risk{color:#C62828;background:#FFEBEE}
+.ru-brk{display:inline-block;margin-left:5px;padding:0 4px;border:1px solid #ff9800;color:#ff9800;border-radius:3px;font-size:11px;line-height:13px;vertical-align:1px;font-weight:700;letter-spacing:.5px}
+.ru-table tbody tr:hover td{background:#F0F4FF!important}
+.top-card .tw{padding-left:0;padding-right:0}
+.top-card table{width:100%;min-width:0;table-layout:fixed;margin:0}
+.top-card th:first-child,.top-card td.sym{min-width:180px;width:180px}
+.top-card th.trend-head,.top-card td.trend{min-width:160px;width:160px}
+.top-card td.sym .industry{display:block;width:auto;max-width:160px;margin:3px auto 0;font-size:12px;text-align:center}
+.top-card tbody tr:first-child td{background:#FFF7F5;font-weight:700}
+.top-card td.sym,.top-history td.sym{text-align:center}
+.wk-badge{display:inline-block;background:#C62828;color:#fff;font-size:11px;font-weight:700;padding:1px 4px;border-radius:3px;margin-left:3px;vertical-align:middle;line-height:1.2}
+.st{font-weight:700;font-size:13px;letter-spacing:.3px}
+.ar{display:flex;align-items:center;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line);font-size:18px;flex-wrap:wrap}
+.ar:last-child{border-bottom:none}
+.ar.ok{color:var(--green);font-weight:700;font-family:'Space Mono',monospace;letter-spacing:1px;padding:18px 16px}
+.as{font-weight:700;font-family:'Space Mono',monospace;font-size:16px;border-left:4px solid;padding:4px 0 4px 10px;min-width:70px}
+.at{flex:1;min-width:220px;line-height:1.45}
+.ap{font-family:'Space Mono',monospace;font-size:14px;color:var(--muted)}
+.am{padding:14px 16px}
+.amh{font-weight:700;font-size:16px;margin:8px 0 5px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.ami{font-size:16px;line-height:1.6;color:var(--muted);margin:2px 0}
+.meta{max-width:1680px;margin:0 auto 8px;font-size:13px;color:var(--muted);padding:14px 2px 4px;letter-spacing:.5px;display:flex;gap:8px;align-items:center}
+:root{--nav-h:38px}
+.nav{position:sticky;top:0;z-index:20;display:flex;gap:5px;overflow-x:auto;max-width:1680px;margin:0 auto 14px;padding:0 8px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:4px;box-shadow:0 2px 6px rgba(21,23,26,.06);height:var(--nav-h);box-sizing:border-box;align-items:center;white-space:nowrap;scrollbar-width:thin}
+.nav::-webkit-scrollbar{height:4px}.nav::-webkit-scrollbar-thumb{background:#ccc;border-radius:2px}
+.nav button{border:1px solid var(--line);background:#fff;color:var(--ink);font-size:13px;padding:3px 9px;cursor:pointer;border-radius:3px;letter-spacing:.4px;font-family:'Space Mono',monospace;white-space:nowrap;flex:0 0 auto}
+.nav button:hover{background:#f0f0f0}
+.nav button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.mobile-menu-btn{display:none;position:fixed;top:8px;left:8px;z-index:60;background:var(--ink);color:#fff;border:none;width:36px;height:36px;border-radius:4px;font-size:20px;cursor:pointer;align-items:center;justify-content:center}
+.ch-toggle{margin-left:auto;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;width:22px;height:22px;border-radius:3px;cursor:pointer;font-size:13px;line-height:1;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+.card.collapsed>*:not(.ch){display:none}
+.card{scroll-margin-top:48px}
+.sidebar{position:fixed;left:0;top:0;height:100vh;width:180px;background:var(--ink);color:#fff;z-index:40;display:flex;flex-direction:column;padding:12px 0;overflow-y:auto;scrollbar-width:none;transition:transform .25s ease}
+.sidebar::-webkit-scrollbar{width:0}
+.sidebar .sb-logo{font:700 20px 'Space Mono',monospace;letter-spacing:3px;padding:8px 16px 16px;border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:8px}
+.sidebar .sb-item{display:block;padding:10px 16px;font:500 17px 'Space Grotesk',sans-serif;letter-spacing:.5px;cursor:pointer;border-left:3px solid transparent;transition:all .15s;color:rgba(255,255,255,.65);text-decoration:none}
+.sidebar .sb-item:hover{background:rgba(255,255,255,.08);color:#fff}
+.sidebar .sb-item.active{background:rgba(255,255,255,.12);color:#fff;border-left-color:var(--red)}
+.sb-sep{height:1px;background:rgba(255,255,255,.1);margin:6px 16px}
+.sb-toggle{position:absolute;top:9px;right:9px;width:24px;height:24px;border:1px solid rgba(255,255,255,.25);background:transparent;color:rgba(255,255,255,.7);border-radius:3px;cursor:pointer;font-size:13px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;z-index:1}
+.sb-toggle:hover{background:rgba(255,255,255,.12);color:#fff}
+body.sb-hide .mobile-menu-btn{display:flex}
+.page{display:none}
+.page.active{display:block}
+body{margin-left:180px}
+@media(min-width:901px){
+  body.sb-hide{margin-left:0}
+  body.sb-hide .sidebar{transform:translateX(-100%)}
+}
+.hd,.meta,.nav,.nt{margin-left:auto;margin-right:auto;max-width:1500px}
+@media(max-width:900px){
+  .sidebar{position:fixed;top:0;left:0;width:100%;height:auto;max-height:0;overflow:hidden;transition:max-height .3s ease;z-index:50;padding:0;flex-direction:row;flex-wrap:wrap}
+  .sidebar.open{max-height:60vh;overflow-y:auto;padding:8px 0}
+  .sidebar .sb-logo{width:100%;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.15);font-size:17px}
+  .sidebar .sb-item{padding:8px 14px;font-size:16px;border-left:none;border-bottom:2px solid transparent}
+  .sidebar .sb-item.active{border-bottom-color:var(--red);border-left-color:transparent}
+  body{margin-left:0}
+  .mobile-menu-btn{display:flex!important}
+}
+.ic-years{margin-left:auto;font-size:13px;font-weight:400;letter-spacing:0;display:flex;gap:10px;flex-wrap:nowrap;overflow-x:auto}
+.ic-years .ok{color:#66bb6a}
+.ic-years .wrn{color:#ef5350}
+.meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+@media(max-width:640px){.meta{padding-top:10px;padding-bottom:3px;margin-bottom:6px}}
+.meta a:hover{color:#b52b32}
+.nt{max-width:1680px;margin:0 auto;font-size:13px;color:var(--muted);padding:14px 2px;border-top:1px solid var(--line);letter-spacing:1px}
+.ok{color:var(--green);font-weight:700}
+td.ds-up{color:var(--green);font-weight:700}
+td.ds-down{color:var(--red);font-weight:700}
+td.ds-new{color:var(--blue);font-weight:700}
+td.ds-flat{color:var(--amber);font-weight:700}
+tr.ds-newrow td{background:rgba(66,133,244,.10)!important}
+.wrn{color:var(--red);font-weight:700}
+.date-cell{text-align:left !important}
+.today td{background:#FFF4D6 !important;font-weight:700}
+@media print{body{background:#fff;padding:10px}.card{border:1px solid #ccc;page-break-inside:avoid;box-shadow:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@media(max-width:640px){body{padding:16px 10px 28px}.hd{align-items:flex-end;gap:10px;margin-bottom:0}.hd h1{font-size:16px;letter-spacing:2px}.hd .dt{font-size:31px;letter-spacing:-1px}.hd .tg{font-size:11px;padding:6px 7px}.card{margin-bottom:14px}.ch{min-height:42px;font-size:13px;padding:9px 12px}.tw{margin:0;padding:0 6px}.top-card .tw{padding-left:0;padding-right:0}.top-card table{width:max-content;min-width:640px;table-layout:auto;margin:0}table{font-size:16px}th{font-size:13px;padding:9px 10px}td{padding:10px 11px}td.sym{font-size:16px;min-width:132px;width:132px}td.sym .industry{width:46px;max-width:46px;font-size:12px}.ar{padding:11px 12px;gap:8px}.ap{font-size:13px}.ami{font-size:16px}}
+.drawer-mask{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:30}
+.drawer-mask.open{display:block}
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(900px,96vw);background:#1a1d23;border-left:1px solid #333;overflow:auto;padding:0;box-shadow:-16px 0 50px rgba(0,0,0,.4);transform:translateX(100%);transition:transform .3s ease;z-index:31;color:#d4d4d8}
+.drawer-mask.open+.drawer,.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:flex-start;padding:18px 22px 14px;border-bottom:1px solid #333}
+.drawer-head h3{margin:0;font:700 24px 'Space Mono',monospace;color:#f0f0f0}
+.drawer-head .d-industry{color:#888;font-size:14px;margin:4px 0 0}
+.drawer-head .d-price{margin-left:auto;font:700 28px 'Space Mono',monospace;color:#26a69a}
+.close-btn{margin-left:14px;border:1px solid #444;background:#2a2d33;width:34px;height:34px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:#aaa}
+.close-btn:hover{background:#3a3d43;color:#fff}
+.detail-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:14px 22px}
+.detail-item{background:#22252b;border:1px solid #333;padding:10px 12px;min-height:60px}
+.detail-item span{display:block;color:#777;font-size:12px;letter-spacing:.5px}
+.detail-item strong{display:block;margin-top:4px;font:700 15px 'Space Mono',monospace;color:#e8e8e8}
+.drawer-section{padding:0 22px;margin-bottom:4px}
+#dGrid3{grid-template-columns:repeat(3,1fr)}
+.drawer-section .sec-title{font:700 10px 'Space Mono',monospace;letter-spacing:1.5px;color:#666;padding:8px 0 6px;border-bottom:1px solid #333;margin-bottom:8px}
+.drawer-chart{padding:0 22px;margin:10px 0}
+.drawer-alerts{background:#2a1a1a;border:1px solid #5a2222;padding:12px 16px;margin:12px 22px;font-size:14px;line-height:1.6;border-radius:4px}
+.drawer-alerts .da-title{font:700 10px 'Space Mono',monospace;letter-spacing:1px;color:#ef5350;margin-bottom:6px}
+.drawer-features{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 22px;margin:10px 0}
+.drawer-features .detail-item{min-height:48px}
+.drawer-features .detail-item strong{font-size:14px}
+.drawer-footer{padding:14px 22px;color:#555;font-size:12px;border-top:1px solid #333}
+tbody tr[data-ticker]{cursor:pointer}
+tbody tr[data-ticker]:hover td{background:#F0F4FF !important}
+.ms-card{border-top:4px solid var(--red)}
+.ms-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.ms-tile{background:var(--paper);padding:16px 18px 14px;min-height:100px;position:relative}
+.ms-tile.hero{grid-column:span 4;background:var(--ink);color:var(--white)}
+.ms-tile.wide{grid-column:span 2}
+.ms-label{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.hero .ms-label{color:rgba(255,255,255,.65)}
+.ms-tag{font-size:11px;font-weight:700;letter-spacing:1px;padding:2px 6px;border:1px solid var(--line);color:var(--muted);border-radius:2px;white-space:nowrap}
+.hero .ms-tag{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85)}
+.ms-value{font-family:'Space Mono',monospace;font-size:34px;font-weight:700;letter-spacing:-1px;margin-top:9px;line-height:1;font-variant-numeric:tabular-nums}
+.ms-value .u{font-size:15px;letter-spacing:0;color:var(--muted);font-weight:400;margin-left:2px}
+.hero .ms-value{color:var(--white)}
+.ms-value.green{color:var(--green)}.ms-value.amber{color:var(--amber)}.ms-value.blue{color:var(--blue)}.ms-value.red{color:var(--red)}
+.ms-sub{font-size:13px;color:var(--muted);margin-top:9px;letter-spacing:.3px}
+.hero .ms-sub{color:rgba(255,255,255,.65)}
+.ms-bar{height:4px;background:var(--soft);margin-top:10px;border-radius:2px;overflow:hidden}
+.ms-bar i{display:block;height:100%;background:var(--green);border-radius:2px}
+.wct-card{border-top:4px solid var(--purple)}
+.cal-card{border-top:4px solid var(--blue)}
+.sr-card{border-top:4px solid var(--amber)}
+.sr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.sr-item{padding:12px 16px;background:var(--paper)}
+.sr-top{display:flex;align-items:baseline;gap:8px}
+.sr-name{font-weight:700;font-size:16px}
+.sr-score{font-family:'Space Mono',monospace;font-size:18px;font-weight:700;margin-left:auto}
+.sr-score.green{color:var(--green)}.sr-score.red{color:var(--red)}
+.sr-meta{font-size:13px;color:var(--muted);margin-top:4px}
+.sr-rep{font-family:'Space Mono',monospace;font-size:13px;color:var(--ink);margin-top:6px;border-top:1px dashed var(--line);padding-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr-delta{font-family:'Space Mono',monospace;font-size:13px;margin-top:5px;display:flex;gap:10px}
+.sr-delta .ds-up{color:var(--green)}.sr-delta .ds-down{color:var(--red)}.sr-delta .ds-flat{color:var(--muted)}.sr-delta.ds-new{color:var(--blue);font-weight:700}
+.sr-rk{font-size:13px}
+.rr-card{border-top:4px solid var(--red)}
+@media(max-width:900px){.sr-grid{grid-template-columns:1fr}}
+.cal-tbl{width:100%;border-collapse:collapse;font-family:'Space Mono',monospace;font-size:13px}
+.cal-tbl th{color:var(--muted);text-align:right;padding:6px 10px;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.5px;font-weight:400}
+.cal-tbl td{text-align:right;padding:5px 10px;border-bottom:1px dashed var(--line)}
+.cal-tbl th:first-child,.cal-tbl td:first-child{text-align:left;color:var(--muted)}
+.cal-tbl td.top{color:var(--green);font-weight:700}
+.wct-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.wct-tile{background:var(--paper);padding:12px 14px}
+.wct-tile .wct-l{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.wct-tile .wct-v{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;margin-top:6px}
+.wct-tile .wct-v.green{color:var(--green)}.wct-tile .wct-v.red{color:var(--red)}.wct-tile .wct-v.blue{color:var(--blue)}
+.wct-lists{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.wct-list{padding:12px 16px;background:var(--paper)}
+.wct-list-h{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:1.5px;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+.wct-chip{display:inline-block;border:1px solid var(--blue);color:var(--blue);font-family:'Space Mono',monospace;font-size:14px;font-weight:700;padding:3px 8px;margin:3px 4px 3px 0;border-radius:3px}
+.wct-chip .new-badge{background:var(--blue);color:#fff;font-size:11px;padding:1px 4px;margin-left:6px;border-radius:2px}
+.wct-item{font-family:'Space Mono',monospace;font-size:14px;padding:5px 0;border-bottom:1px dashed var(--line);display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.wct-item .wct-sym{font-weight:700}
+.wct-item .wct-meta{font-size:12px;color:var(--muted)}
+.wct-up{color:var(--green);font-weight:700}
+.wct-down{color:var(--red);font-weight:700}
+.wct-item{cursor:pointer}
+.wct-item.up-row{border-left:3px solid var(--green);padding-left:8px;background:rgba(38,166,154,.06)}
+.wct-item.down-row{border-left:3px solid var(--red);padding-left:8px;background:rgba(239,83,80,.06)}
+.wct-item:hover{background:rgba(255,255,255,.03)}
+.wct-chip{cursor:pointer}
+@media(max-width:900px){.wct-grid{grid-template-columns:repeat(3,1fr)}.wct-lists{grid-template-columns:1fr}}
+@media(max-width:640px){.wct-grid{grid-template-columns:repeat(2,1fr)}.wct-tile{padding:10px 12px}.wct-tile .wct-v{font-size:18px}}
+@media(max-width:900px){.ms-grid{grid-template-columns:repeat(2,1fr)}.ms-tile.hero{grid-column:span 2}.ms-tile.wide{grid-column:span 2}}
+@media(max-width:640px){.ms-grid{grid-template-columns:1fr 1fr}.ms-tile{padding:12px 14px;min-height:82px}.ms-value{font-size:26px}.ms-tile.hero{grid-column:span 2}.ms-tile.wide{grid-column:span 2}}
+"""
 
-<section id="market">
-  <h2>MARKET STATE <small>当日信号 · 2026-10-22</small></h2>
-  <div class="grid">
-    <div class="card"><div class="k">全市场标的</div><div class="v">892</div><div class="s">股票 892 · ETF 0</div></div>
-    <div class="card"><div class="k">可执行</div><div class="v ok">42</div><div class="s">严格交易准入通过</div></div>
-    <div class="card"><div class="k">观察</div><div class="v">318</div><div class="s">门槛未全过</div></div>
-    <div class="card"><div class="k">风险</div><div class="v bad">532</div><div class="s">硬风险/负分</div></div>
-    <div class="card"><div class="k">新信号</div><div class="v">10</div><div class="s">今日新进 TOP10</div></div>
-    <div class="card"><div class="k">数据新鲜度</div><div class="v">92.8%</div><div class="s">892/961 只有信号</div></div>
-    <div class="card"><div class="k">质量通过率</div><div class="v">40.4%</div><div class="s">360 只无风险标记</div></div>
-    <div class="card"><div class="k">弹簧信号</div><div class="v">97</div><div class="s">破 20 日低后收复</div></div>
-  </div>
-</section>
 
-<section id="champion">
-  <h2>CHAMPION <small>ens_60 Top30 · 60D 重平衡 · V2 暴露(DD阶梯×IC) · 回测口径</small></h2>
-  <div class="chart"><svg viewBox="0 0 980 190" preserveAspectRatio="none" style="width:100%;height:190px;display:block"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5b9dff" stop-opacity=".45"/><stop offset="100%" stop-color="#5b9dff" stop-opacity="0"/></linearGradient></defs><polyline points="0.0,180.8 3.0,180.5 6.0,180.6 9.0,182.0 12.0,178.6 14.9,178.1 17.9,177.1 20.9,177.0 23.9,176.5 26.9,174.8 29.9,174.1 32.9,172.4 35.9,170.7 38.8,169.3 41.8,168.9 44.8,168.8 47.8,167.9 50.8,167.1 53.8,166.5 56.8,167.3 59.8,167.0 62.7,168.4 65.7,167.2 68.7,168.2 71.7,168.3 74.7,167.6 77.7,167.3 80.7,167.8 83.7,166.4 86.6,167.0 89.6,167.3 92.6,167.8 95.6,166.4 98.6,162.3 101.6,162.4 104.6,164.8 107.6,162.6 110.5,164.2 113.5,163.9 116.5,163.2 119.5,160.7 122.5,161.0 125.5,160.3 128.5,161.0 131.5,160.8 134.5,161.7 137.4,162.4 140.4,162.2 143.4,162.5 146.4,163.0 149.4,162.8 152.4,163.0 155.4,162.3 158.4,162.3 161.3,162.6 164.3,163.1 167.3,162.6 170.3,162.7 173.3,162.6 176.3,162.7 179.3,162.6 182.3,162.3 185.2,162.1 188.2,161.7 191.2,161.6 194.2,161.0 197.2,161.4 200.2,161.2 203.2,161.7 206.2,161.8 209.1,161.7 212.1,161.8 215.1,162.4 218.1,162.3 221.1,161.9 224.1,162.4 227.1,162.3 230.1,162.2 233.0,162.1 236.0,162.2 239.0,162.3 242.0,162.0 245.0,162.1 248.0,162.1 251.0,161.9 254.0,162.2 257.0,162.0 259.9,162.5 262.9,162.5 265.9,162.5 268.9,162.5 271.9,161.8 274.9,162.0 277.9,161.7 280.9,161.4 283.8,161.1 286.8,161.4 289.8,160.8 292.8,161.2 295.8,161.2 298.8,161.1 301.8,161.4 304.8,161.3 307.7,161.2 310.7,161.0 313.7,161.0 316.7,160.9 319.7,160.8 322.7,160.9 325.7,161.0 328.7,161.1 331.6,160.6 334.6,160.6 337.6,160.4 340.6,160.1 343.6,159.5 346.6,158.9 349.6,158.0 352.6,157.5 355.5,158.3 358.5,156.8 361.5,156.1 364.5,151.6 367.5,149.8 370.5,150.9 373.5,148.0 376.5,149.0 379.5,149.9 382.4,150.5 385.4,150.5 388.4,150.0 391.4,148.6 394.4,149.0 397.4,148.7 400.4,150.0 403.4,150.6 406.3,150.2 409.3,150.2 412.3,150.2 415.3,150.2 418.3,150.3 421.3,150.8 424.3,149.3 427.3,149.6 430.2,147.5 433.2,147.1 436.2,145.8 439.2,143.0 442.2,143.1 445.2,139.8 448.2,139.5 451.2,137.1 454.1,139.0 457.1,138.3 460.1,138.7 463.1,137.9 466.1,138.1 469.1,137.4 472.1,134.9 475.1,133.4 478.0,131.6 481.0,128.1 484.0,124.7 487.0,123.0 490.0,122.5 493.0,123.5 496.0,120.6 499.0,120.8 502.0,120.4 504.9,119.6 507.9,121.5 510.9,121.2 513.9,120.2 516.9,119.5 519.9,118.8 522.9,116.3 525.9,115.1 528.8,114.4 531.8,115.5 534.8,114.3 537.8,112.9 540.8,112.7 543.8,112.6 546.8,112.1 549.8,111.4 552.7,109.6 555.7,110.5 558.7,111.3 561.7,110.5 564.7,111.6 567.7,111.1 570.7,109.7 573.7,109.7 576.6,109.6 579.6,110.0 582.6,110.1 585.6,108.7 588.6,107.2 591.6,105.8 594.6,105.9 597.6,104.3 600.5,102.6 603.5,102.5 606.5,102.8 609.5,102.0 612.5,101.1 615.5,94.9 618.5,94.4 621.5,91.2 624.5,90.5 627.4,89.0 630.4,90.2 633.4,89.4 636.4,90.2 639.4,90.2 642.4,89.0 645.4,88.9 648.4,87.2 651.3,84.2 654.3,85.4 657.3,84.7 660.3,83.5 663.3,83.8 666.3,84.5 669.3,85.4 672.3,85.8 675.2,86.2 678.2,85.6 681.2,85.6 684.2,85.5 687.2,85.5 690.2,86.7 693.2,86.0 696.2,86.2 699.1,85.5 702.1,85.4 705.1,85.3 708.1,84.2 711.1,84.1 714.1,84.3 717.1,84.4 720.1,83.6 723.0,82.6 726.0,82.7 729.0,81.3 732.0,79.9 735.0,79.5 738.0,78.5 741.0,77.4 744.0,76.3 747.0,75.7 749.9,74.5 752.9,72.9 755.9,71.7 758.9,72.2 761.9,69.5 764.9,69.0 767.9,66.5 770.9,64.5 773.8,62.9 776.8,63.0 779.8,62.2 782.8,60.5 785.8,61.3 788.8,60.1 791.8,61.0 794.8,58.3 797.7,58.2 800.7,58.3 803.7,58.8 806.7,58.9 809.7,58.1 812.7,57.1 815.7,52.5 818.7,52.2 821.6,53.1 824.6,51.3 827.6,52.3 830.6,48.5 833.6,46.8 836.6,47.0 839.6,46.7 842.6,46.2 845.5,47.0 848.5,43.6 851.5,42.3 854.5,42.1 857.5,40.4 860.5,40.4 863.5,40.5 866.5,39.7 869.5,40.1 872.4,41.4 875.4,38.6 878.4,37.6 881.4,31.8 884.4,30.3 887.4,31.6 890.4,29.5 893.4,28.2 896.3,27.3 899.3,26.9 902.3,24.6 905.3,22.0 908.3,22.2 911.3,21.3 914.3,21.5 917.3,21.2 920.2,19.5 923.2,20.9 926.2,21.0 929.2,21.6 932.2,21.0 935.2,22.1 938.2,19.1 941.2,15.9 944.1,13.5 947.1,14.5 950.1,14.2 953.1,14.4 956.1,13.5 959.1,14.1 962.1,12.6 965.1,10.7 968.0,10.8 971.0,8.0 974.0,9.4 977.0,10.9 980.0,10.9" fill="none" stroke="#5b9dff" stroke-width="1.6"/><polygon points="0,190 0.0,180.8 3.0,180.5 6.0,180.6 9.0,182.0 12.0,178.6 14.9,178.1 17.9,177.1 20.9,177.0 23.9,176.5 26.9,174.8 29.9,174.1 32.9,172.4 35.9,170.7 38.8,169.3 41.8,168.9 44.8,168.8 47.8,167.9 50.8,167.1 53.8,166.5 56.8,167.3 59.8,167.0 62.7,168.4 65.7,167.2 68.7,168.2 71.7,168.3 74.7,167.6 77.7,167.3 80.7,167.8 83.7,166.4 86.6,167.0 89.6,167.3 92.6,167.8 95.6,166.4 98.6,162.3 101.6,162.4 104.6,164.8 107.6,162.6 110.5,164.2 113.5,163.9 116.5,163.2 119.5,160.7 122.5,161.0 125.5,160.3 128.5,161.0 131.5,160.8 134.5,161.7 137.4,162.4 140.4,162.2 143.4,162.5 146.4,163.0 149.4,162.8 152.4,163.0 155.4,162.3 158.4,162.3 161.3,162.6 164.3,163.1 167.3,162.6 170.3,162.7 173.3,162.6 176.3,162.7 179.3,162.6 182.3,162.3 185.2,162.1 188.2,161.7 191.2,161.6 194.2,161.0 197.2,161.4 200.2,161.2 203.2,161.7 206.2,161.8 209.1,161.7 212.1,161.8 215.1,162.4 218.1,162.3 221.1,161.9 224.1,162.4 227.1,162.3 230.1,162.2 233.0,162.1 236.0,162.2 239.0,162.3 242.0,162.0 245.0,162.1 248.0,162.1 251.0,161.9 254.0,162.2 257.0,162.0 259.9,162.5 262.9,162.5 265.9,162.5 268.9,162.5 271.9,161.8 274.9,162.0 277.9,161.7 280.9,161.4 283.8,161.1 286.8,161.4 289.8,160.8 292.8,161.2 295.8,161.2 298.8,161.1 301.8,161.4 304.8,161.3 307.7,161.2 310.7,161.0 313.7,161.0 316.7,160.9 319.7,160.8 322.7,160.9 325.7,161.0 328.7,161.1 331.6,160.6 334.6,160.6 337.6,160.4 340.6,160.1 343.6,159.5 346.6,158.9 349.6,158.0 352.6,157.5 355.5,158.3 358.5,156.8 361.5,156.1 364.5,151.6 367.5,149.8 370.5,150.9 373.5,148.0 376.5,149.0 379.5,149.9 382.4,150.5 385.4,150.5 388.4,150.0 391.4,148.6 394.4,149.0 397.4,148.7 400.4,150.0 403.4,150.6 406.3,150.2 409.3,150.2 412.3,150.2 415.3,150.2 418.3,150.3 421.3,150.8 424.3,149.3 427.3,149.6 430.2,147.5 433.2,147.1 436.2,145.8 439.2,143.0 442.2,143.1 445.2,139.8 448.2,139.5 451.2,137.1 454.1,139.0 457.1,138.3 460.1,138.7 463.1,137.9 466.1,138.1 469.1,137.4 472.1,134.9 475.1,133.4 478.0,131.6 481.0,128.1 484.0,124.7 487.0,123.0 490.0,122.5 493.0,123.5 496.0,120.6 499.0,120.8 502.0,120.4 504.9,119.6 507.9,121.5 510.9,121.2 513.9,120.2 516.9,119.5 519.9,118.8 522.9,116.3 525.9,115.1 528.8,114.4 531.8,115.5 534.8,114.3 537.8,112.9 540.8,112.7 543.8,112.6 546.8,112.1 549.8,111.4 552.7,109.6 555.7,110.5 558.7,111.3 561.7,110.5 564.7,111.6 567.7,111.1 570.7,109.7 573.7,109.7 576.6,109.6 579.6,110.0 582.6,110.1 585.6,108.7 588.6,107.2 591.6,105.8 594.6,105.9 597.6,104.3 600.5,102.6 603.5,102.5 606.5,102.8 609.5,102.0 612.5,101.1 615.5,94.9 618.5,94.4 621.5,91.2 624.5,90.5 627.4,89.0 630.4,90.2 633.4,89.4 636.4,90.2 639.4,90.2 642.4,89.0 645.4,88.9 648.4,87.2 651.3,84.2 654.3,85.4 657.3,84.7 660.3,83.5 663.3,83.8 666.3,84.5 669.3,85.4 672.3,85.8 675.2,86.2 678.2,85.6 681.2,85.6 684.2,85.5 687.2,85.5 690.2,86.7 693.2,86.0 696.2,86.2 699.1,85.5 702.1,85.4 705.1,85.3 708.1,84.2 711.1,84.1 714.1,84.3 717.1,84.4 720.1,83.6 723.0,82.6 726.0,82.7 729.0,81.3 732.0,79.9 735.0,79.5 738.0,78.5 741.0,77.4 744.0,76.3 747.0,75.7 749.9,74.5 752.9,72.9 755.9,71.7 758.9,72.2 761.9,69.5 764.9,69.0 767.9,66.5 770.9,64.5 773.8,62.9 776.8,63.0 779.8,62.2 782.8,60.5 785.8,61.3 788.8,60.1 791.8,61.0 794.8,58.3 797.7,58.2 800.7,58.3 803.7,58.8 806.7,58.9 809.7,58.1 812.7,57.1 815.7,52.5 818.7,52.2 821.6,53.1 824.6,51.3 827.6,52.3 830.6,48.5 833.6,46.8 836.6,47.0 839.6,46.7 842.6,46.2 845.5,47.0 848.5,43.6 851.5,42.3 854.5,42.1 857.5,40.4 860.5,40.4 863.5,40.5 866.5,39.7 869.5,40.1 872.4,41.4 875.4,38.6 878.4,37.6 881.4,31.8 884.4,30.3 887.4,31.6 890.4,29.5 893.4,28.2 896.3,27.3 899.3,26.9 902.3,24.6 905.3,22.0 908.3,22.2 911.3,21.3 914.3,21.5 917.3,21.2 920.2,19.5 923.2,20.9 926.2,21.0 929.2,21.6 932.2,21.0 935.2,22.1 938.2,19.1 941.2,15.9 944.1,13.5 947.1,14.5 950.1,14.2 953.1,14.4 956.1,13.5 959.1,14.1 962.1,12.6 965.1,10.7 968.0,10.8 971.0,8.0 974.0,9.4 977.0,10.9 980.0,10.9 980,190" fill="url(#g)" stroke="none"/></svg></div>
-  <div class="grid">
-    <div class="card"><div class="k">区间</div><div class="v" style="font-size:15px">2021-08-02 → 2026-10-22</div><div class="s">walk-forward OOS + 面板延伸</div></div>
-    <div class="card"><div class="k">累计</div><div class="v ok">3011.5%</div><div class="s">V2 暴露后</div></div>
-    <div class="card"><div class="k">Sharpe</div><div class="v">3.77</div><div class="s">日频年化</div></div>
-    <div class="card"><div class="k">最大回撤</div><div class="v bad">-8.1%</div><div class="s">V2 暴露后</div></div>
-    <div class="card"><div class="k">当前暴露</div><div class="v">15%</div><div class="s">末日 V2 暴露</div></div>
-    <div class="card"><div class="k">V2 分解</div><div class="v" style="font-size:15px">DD 0.15 × IC 1.00</div><div class="s">IC 层降级(断更)</div></div>
-  </div>
-  <div class="note">这是回测口径（样本外预测 + 面板延伸），不是实盘净值。V2 = 回撤阶梯暴露 × IC 健康层，乘法组合；当日暴露 0.15（DD 层 0.15 × IC 层 1.00），当前回撤 -21.2%，IC 层因存档断更降级为 1.0。生产风控状态：🟢 正常。</div>
-</section>
+def _market_state(ru_today, dp_full):
+    """Compute MARKET STATE metrics from real data (研究价值/执行状态/数据质量)."""
+    if ru_today is None or not len(ru_today):
+        return None
+    n_total = int(len(ru_today))
+    asset = ru_today["asset_type"].fillna("股票") if "asset_type" in ru_today.columns else pd.Series("股票", index=ru_today.index)
+    n_stock = int((asset == "股票").sum())
+    n_etf = n_total - n_stock
+    exec_cnt = int((ru_today["execution_status"] == "可执行").sum()) if "execution_status" in ru_today.columns else 0
+    cautious_cnt = int((ru_today["execution_status"] == "观察").sum()) if "execution_status" in ru_today.columns else 0
+    new_cnt = int((ru_today["signal_lifecycle"] == "新信号").sum()) if "signal_lifecycle" in ru_today.columns else 0
+    # 质量通过率: 非杠杆/加密 + ATR 正常 + rr 有效
+    try:
+        lev = ru_today["is_lev_crypto"].fillna(False).astype(bool) if "is_lev_crypto" in ru_today.columns else pd.Series(False, index=ru_today.index)
+        if "atr_pct" in ru_today.columns:
+            # 与 signals.py 门禁一致: ATR 有效且落在 0.1%~15% 区间
+            # (2026-08-25: 上限 10%→15% 免误标高波动股 COHR/CBRS, 下限 0.5%→0.1%
+            #  免误标债券 ETF 等低波动标的)
+            _a = ru_today["atr_pct"]
+            atr_ok = _a.notna() & (_a >= 0.001) & (_a <= 0.15)
+        else:
+            atr_ok = pd.Series(True, index=ru_today.index)
+        rr_ok = ru_today["rr"].notna() if "rr" in ru_today.columns else pd.Series(True, index=ru_today.index)
+        n_qual = int((~lev & atr_ok & rr_ok).sum())
+        qual_pct = 100.0 * n_qual / n_total if n_total else 0.0
+    except Exception:
+        n_qual, qual_pct = n_total, 100.0
+    # 数据新鲜度 / 图表覆盖 / 回测缓存: 从 panel 计算
+    freshness, chart_cov, chart_total, cache_health = 100.0, n_total, n_total, 100.0
+    fresh_date = ""
+    ru_syms = set(ru_today["symbol"].astype(str))
+    if dp_full is not None and len(dp_full):
+        try:
+            dp = dp_full[["symbol", "Date", "Close"]].copy()
+            dp["Date"] = pd.to_datetime(dp["Date"])
+            # 最新完整交易日 = 覆盖标的数 >= 峰值一半 的最新日期。
+            # 盘中后台下载未完成时, panel 全局 max 只是部分标的的盘中 bar
+            # (如 62/1249), 会让新鲜度虚低到个位数; 信号实际基于上一完整收盘日
+            # (标题数据日), 用完整交易日衡量才诚实。
+            _cov = dp.groupby("Date")["symbol"].nunique()
+            _full = _cov[_cov >= _cov.max() * 0.5]
+            last_d = _full.index.max()
+            fresh_date = str(last_d.date())
+            sym_last = set(dp.loc[dp["Date"] == last_d, "symbol"])
+            if ru_syms:
+                freshness = 100.0 * len(ru_syms & sym_last) / len(ru_syms)
+            recent = dp[dp["Date"] >= last_d - pd.Timedelta(days=200)]
+            nbars_recent = recent.groupby("symbol")["Date"].nunique()
+            chart_cov = int((nbars_recent >= 60).sum())
+            chart_total = int(dp["symbol"].nunique())
+            nbars_all = dp.groupby("symbol")["Date"].nunique()
+            if ru_syms:
+                ru_ok = nbars_all.reindex(list(ru_syms)).fillna(0) >= 10
+                cache_health = 100.0 * int(ru_ok.sum()) / len(ru_syms)
+        except Exception:
+            pass
+    return {
+        "n_total": n_total, "n_stock": n_stock, "n_etf": n_etf,
+        "exec": exec_cnt, "cautious": cautious_cnt, "new": new_cnt,
+        "n_qual": n_qual, "qual_pct": qual_pct,
+        "freshness": freshness, "fresh_date": fresh_date,
+        "chart_cov": chart_cov, "chart_total": chart_total,
+        "cache_health": cache_health,
+    }
 
-<section id="quality">
-  <h2>SIGNAL QUALITY <small>OOS 面板 ens 信号 · 逐日秩相关 IC</small></h2>
-  <div class="tw"><table>
-    <thead><tr><th style="text-align:left">周期</th><th>ENS IC</th><th>t</th><th>交易日数</th></tr></thead>
-    <tbody><tr><td class=num>20 日</td><td class=num>+0.0292</td><td class=num>10.2</td><td class=num>1212</td></tr><tr><td class=num>40 日</td><td class=num>+0.0439</td><td class=num>14.0</td><td class=num>1212</td></tr><tr><td class=num>60 日</td><td class=num>+0.0601</td><td class=num>18.5</td><td class=num>1212</td></tr></tbody>
+
+def _fmt_ms_num(x):
+    return f"{int(x):,}"
+
+
+def _render_market_state(ms, date):
+    """Render the MARKET STATE / 市场状态 card (研究价值+执行状态+数据质量)."""
+    if ms is None:
+        return ""
+    cache_health = float(ms["cache_health"])
+    cache_label = "健康" if cache_health >= 90 else ("一般" if cache_health >= 70 else "风险")
+    cache_cls = "green" if cache_health >= 90 else ("amber" if cache_health >= 70 else "red")
+    tiles = []
+    tiles.append(
+        '<div class="ms-tile hero">'
+        f'<div class="ms-label">全市场标的</div>'
+        f'<div class="ms-value">{_fmt_ms_num(ms["n_total"])}</div>'
+        f'<div class="ms-sub">股票 {_fmt_ms_num(ms["n_stock"])} · ETF {_fmt_ms_num(ms["n_etf"])}</div>'
+        '</div>'
+    )
+    tiles.append(
+        '<div class="ms-tile">'
+        '<div class="ms-label">可执行 <span class="ms-tag">READY / 推荐</span></div>'
+        f'<div class="ms-value green">{_fmt_ms_num(ms["exec"])}</div>'
+        '<div class="ms-sub">严格交易准入通过</div>'
+        '</div>'
+    )
+    tiles.append(
+        '<div class="ms-tile">'
+        '<div class="ms-label">谨慎候选 <span class="ms-tag">CAUTIOUS</span></div>'
+        f'<div class="ms-value amber">{_fmt_ms_num(ms["cautious"])}</div>'
+        '<div class="ms-sub">无硬风险 · 门槛未全过</div>'
+        '</div>'
+    )
+    tiles.append(
+        '<div class="ms-tile">'
+        '<div class="ms-label">新信号 <span class="ms-tag">NEW</span></div>'
+        f'<div class="ms-value blue">{_fmt_ms_num(ms["new"])}</div>'
+        '<div class="ms-sub">今日新进 TOP10</div>'
+        '</div>'
+    )
+    tiles.append(
+        '<div class="ms-tile">'
+        '<div class="ms-label">数据新鲜度</div>'
+        f'<div class="ms-value green">{ms["freshness"]:.1f}<span class="u">%</span></div>'
+        f'<div class="ms-bar"><i style="width:{ms["freshness"]:.1f}%"></i></div>'
+        f'<div class="ms-sub">最新完整交易日 {ms.get("fresh_date", "")} 全覆盖</div>'
+        '</div>'
+    )
+    tiles.append(
+        '<div class="ms-tile">'
+        '<div class="ms-label">质量通过率 <span class="ms-tag">适用股票</span></div>'
+        f'<div class="ms-value">{ms["qual_pct"]:.1f}<span class="u">%</span></div>'
+        f'<div class="ms-bar"><i style="width:{ms["qual_pct"]:.1f}%"></i></div>'
+        f'<div class="ms-sub">通过 {_fmt_ms_num(ms["n_qual"])} / {_fmt_ms_num(ms["n_total"])} 只</div>'
+        '</div>'
+    )
+    tiles.append(
+        '<div class="ms-tile">'
+        '<div class="ms-label">图表覆盖</div>'
+        f'<div class="ms-value">{_fmt_ms_num(ms["chart_cov"])}</div>'
+        f'<div class="ms-sub">全市场 {_fmt_ms_num(ms["chart_total"])} 只 · 最近 120 交易日</div>'
+        '</div>'
+    )
+    tiles.append(
+        '<div class="ms-tile wide">'
+        '<div class="ms-label">回测缓存</div>'
+        f'<div class="ms-value {cache_cls}">{cache_health:.1f}<span class="u">%</span></div>'
+        f'<div class="ms-bar"><i style="width:{cache_health:.1f}%"></i></div>'
+        f'<div class="ms-sub">{cache_label} · 抽屉 K 线可用</div>'
+        '</div>'
+    )
+    return (
+        '<div class="card ms-card" id="market-state"><div class="ch">MARKET STATE '
+        '<span style="font-size:12px;font-weight:400;letter-spacing:0;opacity:.6;margin-left:8px">市场状态 · 研究价值 / 执行状态 / 数据质量</span></div>'
+        f'<div class="ms-grid">{"".join(tiles)}</div></div>'
+    )
+
+
+
+def _what_changed(ru_today):
+    """Compare today's research universe vs the previous canonical signal date."""
+    if ru_today is None or not len(ru_today):
+        return None
+    files = canonical_signal_files()
+    if len(files) < 2:
+        return None
+    try:
+        prev = pd.read_csv(files[-2])
+    except Exception:
+        return None
+    base = files[-2].stem.replace("signals_", "")
+    m = ru_today.set_index("symbol")
+    p = prev.set_index("symbol")
+    both = m.index.intersection(p.index)
+    new_syms = list(m.index.difference(p.index))
+    tier = {"\u98ce\u9669": 0, "\u89c2\u5bdf": 1, "\u53ef\u6267\u884c": 2}
+    tr = pd.DataFrame({"prev": p.loc[both, "execution_status"], "now": m.loc[both, "execution_status"]})
+    up = tr[tr["prev"].map(tier) < tr["now"].map(tier)]
+    dn = tr[tr["prev"].map(tier) > tr["now"].map(tier)]
+    chg = tr[tr["prev"] != tr["now"]]
+    ds = (m.loc[both, "composite"] - p.loc[both, "composite"]).dropna()
+    dr = p.loc[both, "research_rank"] - m.loc[both, "research_rank"]
+    def _cur(sym):
+        """今日当前排名与评分(供变化后并排展示)。"""
+        try:
+            rk = int(m.loc[sym, "research_rank"])
+        except Exception:
+            rk = None
+        try:
+            al = float(m.loc[sym, "composite"])
+        except Exception:
+            al = None
+        return rk, al
+    # 2026-08-25: 原 RANK UP(排名提升)与 ALPHA UP(评分提升)排序键虽不同,
+    # 但 composite 决定 research_rank, 两者 top6 几乎完全重合, 展示重复。
+    # 已删除 RANK UP 区块, 只保留 ALPHA UP。
+    alpha_up = []
+    for sym, v in ds.nlargest(6).items():
+        r = int(dr.get(sym, 0))
+        ex = tr.loc[sym]
+        note = f"{ex['prev']}\u2192{ex['now']}" if ex["prev"] != ex["now"] else ""
+        cr, ca = _cur(sym)
+        alpha_up.append({"sym": str(sym), "rank": r, "alpha": float(v), "note": note, "cur_rank": cr, "cur_alpha": ca})
+    exec_list = []
+    for sym, r in chg.iterrows():
+        a = float(m.loc[sym, "composite"] - p.loc[sym, "composite"])
+        rk = int(dr.get(sym, 0))
+        cr, ca = _cur(sym)
+        exec_list.append({"sym": str(sym), "prev": r["prev"], "now": r["now"],
+                          "alpha": a, "rank": rk, "cur_rank": cr, "cur_alpha": ca,
+                          "pri": r["prev"] == "\u53ef\u6267\u884c" or r["now"] == "\u53ef\u6267\u884c"})
+    exec_list.sort(key=lambda x: (-int(x["pri"]), -abs(x["alpha"])))
+    return {"base": base, "up": int(len(up)), "dn": int(len(dn)),
+            "score_up": int((ds >= 1.0).sum()), "score_dn": int((ds <= -1.0).sum()),
+            "new": new_syms[:24], "exec": int(len(chg)),
+            "alpha_up": alpha_up, "exec_list": exec_list[:8]}
+
+def _render_what_changed(wc):
+    if wc is None:
+        return ""
+    up = f'<div class="wct-tile"><div class="wct-l">资格上调</div><div class="wct-v green">{wc["up"]}</div></div>'
+    dn = f'<div class="wct-tile"><div class="wct-l">资格下调</div><div class="wct-v red">{wc["dn"]}</div></div>'
+    su = f'<div class="wct-tile"><div class="wct-l">评分上升 ≥1</div><div class="wct-v green">{wc["score_up"]}</div></div>'
+    sd = f'<div class="wct-tile"><div class="wct-l">评分下降 ≤-1</div><div class="wct-v red">{wc["score_dn"]}</div></div>'
+    nn = f'<div class="wct-tile"><div class="wct-l">发布池新增</div><div class="wct-v blue">{len(wc["new"])}</div></div>'
+    ex = f'<div class="wct-tile"><div class="wct-l">执行变化</div><div class="wct-v">{wc["exec"]}</div></div>'
+    chips = "".join(f'<span class="wct-chip" data-ticker="{E(x)}">{E(x)}<span class="new-badge">NEW</span></span>' for x in wc["new"]) or '<span style="color:var(--muted);font-size:14px">无新增</span>'
+    def _rank_arrow(rk):
+        if rk > 0: return f'<span class="wct-up">↑{rk}</span>'
+        if rk < 0: return f'<span class="wct-down">↓{-rk}</span>'
+        return '<span>—</span>'
+    def _rk_now(v):
+        return f"#{int(v)}" if v is not None else "—"
+    def _al_now(v):
+        return f"{float(v):+.1f}" if v is not None else "—"
+    ap_items = ""
+    for it in wc["alpha_up"]:
+        note = f'<span class="wct-meta">· {E(it["note"])}</span>' if it["note"] else ""
+        ap_items += (f'<div class="wct-item" data-ticker="{E(it["sym"])}"><span class="wct-sym">{E(it["sym"])}</span>'
+                     f'<span>排名 {_rank_arrow(it["rank"])}→{_rk_now(it["cur_rank"])} · Alpha <span class="wct-up">{it["alpha"]:+.1f}</span>→{_al_now(it["cur_alpha"])}</span>{note}</div>')
+    ex_items = ""
+    for it in wc["exec_list"]:
+        if it["now"] == "可执行":
+            cls = "wct-up"; arrow = "▲"; rcls = "up-row"
+        elif it["prev"] == "可执行":
+            cls = "wct-down"; arrow = "▼"; rcls = "down-row"
+        else:
+            cls = ""; arrow = ""; rcls = ""
+        rks = f'排名 {_rank_arrow(it["rank"])}→{_rk_now(it["cur_rank"])} · ' if it["rank"] else ""
+        ex_items += (f'<div class="wct-item {rcls}" data-ticker="{E(it["sym"])}"><span class="wct-sym">{E(it["sym"])}</span>'
+                     f'<span>{rks}Alpha {it["alpha"]:+.1f}→{_al_now(it["cur_alpha"])} · <span class="{cls}">{arrow} {E(it["prev"])}→{E(it["now"])}</span></span></div>')
+    _gr = up + dn + su + sd + nn + ex
+    _ap = ap_items or "<div class=\"wct-item\">无</div>"
+    _exl = ex_items or "<div class=\"wct-item\">无</div>"
+    return (
+        '<div class="card wct-card" id="what-changed"><div class="ch">WHAT CHANGED TODAY '
+        f'<span style="font-size:12px;font-weight:400;letter-spacing:0;opacity:.6;margin-left:8px">今日发生了什么 · 研究池 vs 最近一期({wc["base"]}) · →后为当前排名/评分</span></div>'
+        f'<div class="wct-grid">{_gr}</div>'
+        '<div class="wct-lists">'
+        f'<div class="wct-list"><div class="wct-list-h">NEW / 新进入发布研究池</div>{chips}</div>'
+        f'<div class="wct-list"><div class="wct-list-h">ALPHA UP / 评分提升</div>{_ap}</div>'
+        f'<div class="wct-list"><div class="wct-list-h">EXECUTION / 执行状态变化</div>{_exl}</div>'
+        '</div></div>'
+    )
+
+
+def _backtest_calib(ru_today):
+    """读取生产回测校准表(data/score_bucket_calib.json) + 今日标注覆盖。
+
+    策略: 校准链路参与生产评分(cal_* 列),但只在 score_bucket_calib.py
+    回测完成后统一重算发布;运行中只读表标注,不增量改排名。
+    """
+    try:
+        import json as _json
+        cal = _json.loads(Path("data/score_bucket_calib.json").read_text())
+        cov_n = cov_t = 0
+        if ru_today is not None and "cal_bucket" in ru_today.columns:
+            cov_t = int(len(ru_today))
+            cov_n = int(ru_today["cal_bucket"].notna().sum())
+        return {
+            "at": str(cal.get("calibrated_at", "")),
+            "horizon": int(cal.get("horizon", 60)),
+            "n_total": int(cal.get("n_total", 0)),
+            "monotone": bool(cal.get("monotone", False)),
+            "spread": float(cal.get("spread_top_minus_bottom", 0.0)),
+            "cov_n": cov_n, "cov_t": cov_t,
+            "buckets": [
+                {"b": int(b.get("bucket")), "n": int(b.get("n", 0)),
+                 "mean": float(b.get("mean_ret", 0.0)), "med": float(b.get("med_ret", 0.0)),
+                 "hit": float(b.get("hit_rate", 0.0)), "peak": float(b.get("mean_peak", 0.0))}
+                for b in cal.get("buckets", [])
+            ],
+        }
+    except Exception:
+        return None
+
+
+def _render_backtest_calib(cal):
+    if cal is None or not cal.get("buckets"):
+        return ""
+    up = "\U0001F7E2" if cal["monotone"] else "\U0001F534"
+    mon_cls = "wct-v green" if cal["monotone"] else "wct-v red"
+    cov_pct = (cal["cov_n"] / cal["cov_t"] * 100.0) if cal["cov_t"] else 0.0
+    nf = lambda v: f"{v:,.0f}"
+    tiles = (
+        f'<div class="wct-tile"><div class="wct-l">校准日期</div><div class="wct-v">{E(cal["at"])}</div></div>'
+        f'<div class="wct-tile"><div class="wct-l">预测期</div><div class="wct-v">{cal["horizon"]}D</div></div>'
+        f'<div class="wct-tile"><div class="wct-l">校准样本</div><div class="wct-v">{nf(cal["n_total"])}</div><div style="font-size:12px;color:var(--muted);margin-top:2px">已完结样本</div></div>'
+        f'<div class="wct-tile"><div class="wct-l">分数单调性</div><div class="{mon_cls}">{up} {"成立" if cal["monotone"] else "失效"}</div></div>'
+        f'<div class="wct-tile"><div class="wct-l">极差 Top−Bottom</div><div class="wct-v green">{cal["spread"]*100:+.2f}pp</div></div>'
+        f'<div class="wct-tile"><div class="wct-l">今日标注覆盖</div><div class="wct-v">{cov_pct:.1f}%</div><div style="font-size:12px;color:var(--muted);margin-top:2px">{nf(cal["cov_n"])}/{nf(cal["cov_t"])} 只</div></div>'
+    )
+    rows = ""
+    nb = len(cal["buckets"])
+    for b in cal["buckets"]:
+        cls = "top" if b["b"] == nb - 1 else ""
+        rows += (f'<tr><td>B{b["b"]}</td><td>{nf(b["n"])}</td>'
+                 f'<td>{b["mean"]*100:+.2f}%</td><td>{b["med"]*100:+.2f}%</td>'
+                 f'<td>{b["hit"]*100:.2f}%</td><td class="{cls}">{b["peak"]*100:+.1f}%</td></tr>')
+    return (
+        '<div class="card cal-card" id="calibration"><div class="ch">PRODUCTION BACKTEST CALIBRATION '
+        '<span style="font-size:12px;font-weight:400;letter-spacing:0;opacity:.6;margin-left:8px">个股回测校准 · 参与生产评分 · 回测完成后统一重算发布 · 运行中不增量改排名</span></div>'
+        f'<div class="wct-grid">{tiles}</div>'
+        '<div class="tw" style="padding:8px 16px 6px"><table class="cal-tbl"><thead>'
+        '<tr><th>桶</th><th>样本</th><th>60D 均值</th><th>中位数</th><th>命中率</th><th>路径峰值</th></tr></thead>'
+        f'<tbody>{rows}</tbody></table></div>'
+        '<div style="padding:6px 16px 12px;font-size:12px;color:var(--muted)">校准模式: 只标注不改分 —— cal_* 列供参考,不参与当日排名改动;由 score_bucket_calib.py 回测完成后统一重算发布</div>'
+        '</div>'
+    )
+
+
+def _sector_scores(d):
+    """同一口径聚合: 前 400 名按行业 score = clip(50 + 25*composite均值, 0, 100)。"""
+    ind = load_industry_map()
+    d = d.copy()
+    d["industry"] = d["symbol"].map(ind).fillna("其他")
+    top = d[d["research_rank"] <= 400]
+    out = {}
+    for sec, g in top.groupby("industry", sort=False):
+        out[sec] = float(max(0.0, min(100.0, 50 + 25 * g["composite"].mean())))
+    return out
+
+
+def _sector_rotation(ru_today):
+    """按研究池前 400 名按行业聚合(只展示,不新增模型权重)。
+
+    score = clip(50 + 25 * 组内 composite 均值, 0, 100),即 z-score → 0-100 展示刻度。
+    环比: 读昨日信号文件按同一口径聚合,输出 score 变化与排名变化。
+    """
+    if ru_today is None or not len(ru_today):
+        return None
+    try:
+        ind = load_industry_map()
+        d = ru_today.copy()
+        d["industry"] = d["symbol"].map(ind).fillna("其他")
+        top = d[d["research_rank"] <= 400]
+        # 昨日同口径行业分(全行业排名基准)
+        prev = {}
+        try:
+            _pf = canonical_signal_files()
+            if len(_pf) >= 2:
+                _pdf = pd.read_csv(_pf[-2])
+                if "composite" in _pdf.columns and "research_rank" in _pdf.columns:
+                    prev = _sector_scores(_pdf)
+        except Exception:
+            prev = {}
+        prev_rank = {sec: i + 1 for i, sec in enumerate(sorted(prev, key=lambda k: -prev[k]))}
+        rows = []
+        for sec, g in top.groupby("industry", sort=False):
+            best = g.sort_values("composite", ascending=False).iloc[0]
+            rows.append({
+                "sec": sec,
+                "score": float(max(0.0, min(100.0, 50 + 25 * g["composite"].mean()))),
+                "n": int(len(g)),
+                "exec": int(g["execution_status"].isin(["可执行", "观察"]).sum()),
+                "new": int(g["signal_lifecycle"].eq("新信号").sum()) if "signal_lifecycle" in g.columns else 0,
+                "rep": str(best["symbol"]),
+                "rep_name": str(best.get("name", ""))[:26],
+                "prev_score": prev.get(sec),
+                "prev_rank": prev_rank.get(sec),
+            })
+        rows.sort(key=lambda r: -r["score"])
+        for i2, r in enumerate(rows):
+            r["rank"] = i2 + 1
+        multi = [r for r in rows if r["n"] >= 2]
+        single = [r for r in rows if r["n"] < 2]
+        top = multi[:8] if len(multi) >= 4 else (multi + single)[:8]
+        return top
+    except Exception:
+        return None
+
+
+
+def _render_sector_rotation(rows):
+    if not rows:
+        return ""
+    items = ""
+    for r in rows:
+        sc = "green" if r["score"] >= 85 else ("red" if r["score"] <= 70 else "")
+        # 环比: Δscore + 排名变化
+        _ps = r.get("prev_score")
+        _pr = r.get("prev_rank")
+        _rk = r.get("rank")
+        if _ps is not None:
+            _d = r["score"] - _ps
+            _dcls = "ds-up" if _d > 0.05 else ("ds-down" if _d < -0.05 else "ds-flat")
+            if _pr is not None and _rk is not None:
+                _rd = _pr - _rk
+                if _rd > 0:
+                    _rkhtml = "<span class=\"sr-rk ds-up\">排名 ↑" + str(_rd) + "</span>"
+                elif _rd < 0:
+                    _rkhtml = "<span class=\"sr-rk ds-down\">排名 ↓" + str(-_rd) + "</span>"
+                else:
+                    _rkhtml = "<span class=\"sr-rk ds-flat\">排名 —</span>"
+                dl = "<div class=\"sr-delta\"><span class=\"" + _dcls + "\">Δ " + ("%+.1f" % _d) + "</span>" + _rkhtml + "</div>"
+            else:
+                dl = "<div class=\"sr-delta\"><span class=\"" + _dcls + "\">Δ " + ("%+.1f" % _d) + "</span></div>"
+        else:
+            dl = "<div class=\"sr-delta ds-new\">新进行业</div>"
+        items += (
+            f'<div class="sr-item"><div class="sr-top"><span class="sr-name">{E(r["sec"])}</span>'
+            f'<span class="sr-score {sc}">{r["score"]:.1f}</span></div>'
+            + dl +
+            f'<div class="sr-meta">候选 {r["n"]} · 可执行/谨慎 {r["exec"]} · 新信号 {r["new"]}</div>'
+            f'<div class="sr-rep">{E(r["rep"])} {E(r["rep_name"])}</div></div>'
+        )
+    return (
+        '<div class="card sr-card" id="sector-rotation"><div class="ch">SECTOR ROTATION '
+        '<span style="font-size:12px;font-weight:400;letter-spacing:0;opacity:.6;margin-left:8px">行业轮动 · 按研究池前 400 名聚合 · 不新增模型权重</span></div>'
+        f'<div class="sr-grid">{items}</div></div>'
+    )
+
+
+def _risk_radar(ru_today):
+    if ru_today is None or not len(ru_today):
+        return None
+    try:
+        d = ru_today.copy()
+        rf = d["risk_flags"].fillna("").astype(str)
+        return {
+            "blocked": int((d["execution_status"] == "风险").sum()),
+            "data_incomplete": int((rf.str.contains("ATR数据异常") | rf.str.contains("流动性数据异常")).sum()),
+            "qual_fail": int((d["execution_status"] == "观察").sum()),
+            "stop_missing": int(d["stop"].isna().sum()),
+            "hard_risk": int((rf.str.contains("深坑风险") | rf.str.contains("杠杆/加密ETF") | rf.str.contains("60日预测为负")).sum()),
+            "not_rankable": int(d["is_lev_crypto"].fillna(False).astype(bool).sum()),
+        }
+    except Exception:
+        return None
+
+
+def _render_risk_radar(rr):
+    if rr is None:
+        return ""
+    def _tile(lbl, val, sub, cls=""):
+        vc = f'<div class="wct-v {cls}">{val}</div>' if cls else f'<div class="wct-v">{val}</div>'
+        return (f'<div class="wct-tile"><div class="wct-l">{lbl}</div>{vc}'
+                f'<div style="font-size:12px;color:var(--muted);margin-top:2px">{sub}</div></div>')
+    tiles = (
+        _tile("执行阻断", rr["blocked"], "BLOCKED / 风险过滤", "red")
+        + _tile("质量数据不完整", rr["data_incomplete"], "关键数据字段缺失", "red")
+        + _tile("质量策略未通过", rr["qual_fail"], "仅作研究观察")
+        + _tile("止损字段缺失", rr["stop_missing"], "当前公开候选范围", "green" if rr["stop_missing"] == 0 else "red")
+        + _tile("hard_risk", rr["hard_risk"], "DailyRunSummary 决策健康统计", "red")
+        + _tile("local_backtest_not_rankable", rr["not_rankable"], "DailyRunSummary 决策健康统计")
+    )
+    return (
+        '<div class="card rr-card" id="risk-radar"><div class="ch">RISK RADAR '
+        '<span style="font-size:12px;font-weight:400;letter-spacing:0;opacity:.6;margin-left:8px">风险雷达 · 展示阻断和数据完整性</span></div>'
+        f'<div class="wct-grid">{tiles}</div></div>'
+    )
+
+
+
+def _overlay_latest_signal_preds(df):
+    """持仓表预测列与当日 signals 对齐(2026-08-25 修复)。
+
+    PORTFOLIO 表原读 holdings_alert 快照里的 p_high_*/p_low_60, 该快照在
+    track_portfolio 运行时生成; 同数据日 signals 若被重新运行(盘中/盘后/手动
+    多次刷新), holdings_alert 不会同步 → PORTFOLIO 与 TOP/RESEARCH UNIVERSE
+    同股不同值。修复: 渲染时对每只持仓股, 若在最新 signals 中有记录, 用其
+    p_high_20/40/60、p_low_60(×100, 与 holdings_alert 的百分数存储一致)覆盖。
+    无记录(不在股票池/数据缺失)的保持快照值。
+    """
+    if df is None or not len(df):
+        return df
+    sigs = canonical_signal_files()
+    if not sigs:
+        return df
+    try:
+        sig = pd.read_csv(sigs[-1])
+    except Exception:
+        return df
+    cols = ["p_high_20", "p_high_40", "p_high_60", "p_low_60"]
+    if not {"symbol"} | set(cols) <= set(sig.columns):
+        return df
+    m = sig.set_index("symbol")[cols]
+    df = df.copy()
+    n_ok = 0
+    for i, r in df.iterrows():
+        s = str(r.get("symbol", "")).strip().upper()
+        if s in m.index:
+            row = m.loc[s]
+            for c in cols:
+                v = row.get(c)
+                if pd.notna(v):
+                    df.at[i, c] = float(v) * 100
+            n_ok += 1
+    print(f"[render] PORTFOLIO 预测列已用当日 signals 覆盖 {n_ok}/{len(df)} 只持仓")
+    return df
+
+
+def render_daily_html():
+    got=latest()
+    if got is None: return None
+    df,date=got
+    # 持仓表预测列与当日 signals 对齐(2026-08-25: holdings_alert 快照可能滞后于同日 signals 重跑)
+    df = _overlay_latest_signal_preds(df)
+    t10=top10()
+    sh=sig_hist(df)
+    t10h=top10_history()
+    t10_block=f'<div class="card top-history" id="top-history"><div class="ch">TOP 10 HISTORY <span style="font-size:12px;font-weight:400;letter-spacing:0;opacity:.7;margin-left:12px">SCORE=模型分数 TGT=目标价 NOW=当前价 CHG=信号日至今涨幅</span></div><div class="tw"><table><thead><tr><th>WHEN</th><th>DATE</th><th>#</th><th>CODE</th><th>SIGNAL PRICE</th><th>SCORE</th><th>TGT</th><th>NOW</th><th>CHG</th><th class="trend-head">TREND</th></tr></thead><tbody>{t10h}</tbody></table></div></div>' if t10h else ""
+    # top10 with sparklines (20 交易日收盘价,从 panel 拉取)
+    tr=""; tc=""
+    _prev_scores = {}
+    _prev_ranks = {}
+    if t10 is not None and len(t10):
+        hc="close" in t10.columns
+        sigs_all = canonical_signal_files()
+        top_syms = set(t10["symbol"])
+        # 从 panel.parquet 拉最近 20 个交易日收盘价(比 signal 文件覆盖更全)
+        px_hist = {s: [] for s in top_syms}
+        try:
+            _panel = pd.read_parquet("data/panel.parquet", columns=["symbol", "Date", "Close"])
+            _panel["Date"] = pd.to_datetime(_panel["Date"])
+            _today = pd.to_datetime(t10.iloc[0].get("date", pd.Timestamp("today"))) if len(t10) else pd.Timestamp("today")
+            for sym in top_syms:
+                sp = _panel[_panel["symbol"] == sym].sort_values("Date")
+                sp = sp[sp["Date"] <= _today].tail(20)
+                px_hist[sym] = sp["Close"].tolist()
+        except Exception:
+            # fallback: 从 signal 文件取(通常只有5-6天)
+            for sf in sigs_all[-20:]:
+                try:
+                    sdf = pd.read_csv(sf)
+                except: continue
+                if "close" not in sdf.columns: continue
+                for _, sr in sdf.iterrows():
+                    s = str(sr["symbol"])
+                    if s in top_syms:
+                        px_hist.setdefault(s, []).append(sr["close"])
+        # 本周出现次数: 只统计每只股票在过去5个交易日 TOP 10 中出现几次
+        from collections import Counter
+        wk_freq = Counter()
+        for sf in sigs_all[-5:]:
+            try:
+                sdf = pd.read_csv(sf)
+            except: continue
+            if "composite" not in sdf.columns: continue
+            for _, sr in sdf.sort_values("composite", ascending=False).head(10).iterrows():
+                wk_freq[str(sr["symbol"])] += 1
+        # 昨日信号对比: ΔSCORE = 今日 composite - 昨日 composite; 昨日无此标的 -> 新进
+        _prev_scores = {}
+        _prev_ranks = {}
+        _prev2_scores = {}
+        if len(sigs_all) >= 2:
+            try:
+                _pdf = pd.read_csv(sigs_all[-2])
+                if "composite" in _pdf.columns:
+                    _prev_scores = {str(x): c for x, c in zip(_pdf["symbol"], _pdf["composite"]) if pd.notna(c)}
+                if "research_rank" in _pdf.columns:
+                    _prev_ranks = {str(x): rk for x, rk in zip(_pdf["symbol"], _pdf["research_rank"]) if pd.notna(rk)}
+                _pdf2 = pd.read_csv(sigs_all[-3]) if len(sigs_all) >= 3 else None
+                if _pdf2 is not None and "composite" in _pdf2.columns:
+                    _prev2_scores = {str(x): c for x, c in zip(_pdf2["symbol"], _pdf2["composite"]) if pd.notna(c)}
+            except Exception:
+                pass
+        _fpct = lambda _x: P(float(_x) * 100) if pd.notna(_x) else "\u2014"
+        for _,r in t10.iterrows():
+            cells=code_cell(r["symbol"], weekly_count=wk_freq.get(str(r["symbol"]), 0))
+            if hc: cells+=f'<td class="num">{N(r["close"])}</td>'
+            _ps = _prev_scores.get(str(r["symbol"]))
+            _ps2 = _prev2_scores.get(str(r["symbol"]))
+            if _ps is not None and _ps2 is not None:
+                _v0 = float(r["composite"]); _v1 = float(_ps); _v2 = float(_ps2)
+                if _v2 < _v1 < _v0:
+                    _dcell = '<td class="num ds-up">▲ 上升</td>'
+                elif _v2 > _v1 > _v0:
+                    _dcell = '<td class="num ds-down">▼ 下降</td>'
+                else:
+                    _dcell = '<td class="num ds-flat">◆ 震荡</td>'
+            else:
+                _dcell = '<td class="num ds-new">新进</td>'
+            _pr = _prev_ranks.get(str(r["symbol"]))
+            if _pr is not None:
+                _rkchg = int(_pr) - int(r["research_rank"])
+                if _rkchg > 0:
+                    _rkcell = f'<td class="num ds-up">↑{_rkchg}</td>'
+                elif _rkchg < 0:
+                    _rkcell = f'<td class="num ds-down">↓{-_rkchg}</td>'
+                else:
+                    _rkcell = '<td class="num">—</td>'
+            else:
+                _rkcell = '<td class="num ds-new">新进</td>'
+            _dth2 = r.get('fwd_days_to_high'); _dtl2 = r.get('fwd_days_to_low')
+            cells+=f'<td class="num">{r["composite"]:+.1f}</td>' + _dcell + _rkcell + f'<td class="pct">{_fpct(r.get("p_high_20"))}</td><td class="pct">{_fpct(r.get("p_high_40"))}</td>' f'<td class="pct">{_fpct(r.get("p_high_60"))}</td><td class="pct">{_fpct(r.get("p_low_60"))}</td>' + f'<td class="num">{int(_dth2) if pd.notna(_dth2) else "—"}</td><td class="num">{int(_dtl2) if pd.notna(_dtl2) else "—"}</td>' + f'<td class="num">{N(r["target"],0)}</td><td class="num">{N(r["stop"],0)}</td>'
+            # sparkline (oldest→newest)
+            prices = px_hist.get(str(r["symbol"]), [])
+            prices = [float(x) for x in prices if pd.notna(x)]
+            cells+=f'<td class="trend">{spark(prices) if len(prices)>=2 else "—"}</td>'
+            _rowcls = ' class="ds-newrow"' if "ds-new" in _dcell else ""
+            tr+=f"<tr{_rowcls} data-ticker='{E(str(r["symbol"]))}'>{cells}</tr>"
+        tc='<th>CODE</th><th>PRICE</th><th>SCORE</th><th>趋势</th><th>ΔRANK</th><th>H20</th><th>H40</th><th>H60</th><th>L60</th><th>⬆D</th><th>⬇D</th><th>TGT</th><th>STOP</th><th class="trend-head">TREND</th>' if hc else '<th>CODE</th><th>SCORE</th><th>趋势</th><th>ΔRANK</th><th>H20</th><th>H40</th><th>H60</th><th>L60</th><th>⬆D</th><th>⬇D</th><th>TGT</th><th>STOP</th><th class="trend-head">TREND</th>'
+    else: tc="<th>\u2014</th>"; tr="<tr><td>NO DATA</td></tr>"
+    # signal history headers
+    shh=""; shc=""
+    if sh:
+        af=sorted(OUT.glob("holdings_alert_*.csv"))[-6:]
+        ds=[a.stem.split("_",2)[-1][-5:] for a in af[-5:]]
+        shh='<th colspan="4" style="background:#444;border-left:2px solid var(--red)">TODAY</th><th colspan="4" style="background:#444;border-left:2px solid var(--red)">1D</th><th colspan="4" style="background:#444;border-left:2px solid var(--red)">2D</th><th colspan="4" style="background:#444;border-left:2px solid var(--red)">3D</th><th colspan="4" style="background:#444;border-left:2px solid var(--red)">4D</th>'
+        shc="".join(f'<th>{"TODAY" if i==0 else str(i)+"D"}</th><th>价格</th><th>预测</th><th>状态</th>' for i in range(len(ds)))
+    sig_block="" if not sh else f"""<div class="card" id="signal-tracking"><div class="ch">SIGNAL TRACKING <span style="font-size:12px;font-weight:400;letter-spacing:0;opacity:.7;margin-left:12px">PRICE=信号日收盘 预测=模型预测20日涨幅 状态=当日信号(信号强/正常/信号转弱) 「—」=该股当时不在股票池、无模型信号</span></div><div class="tw"><table class="sig-summary"><thead><tr><th rowspan="2">CODE</th><th rowspan="2">当前价</th><th rowspan="2">累计涨幅</th><th rowspan="2" class="trend-head">TREND</th>{shh}</tr><tr>{shc}</tr></thead><tbody>{sh}</tbody></table></div></div>"""
+    # ---- 抽屉详情数据: 每只标的的关键指标 + 20日价格 ----
+    _ind = load_industry_map()
+    # ---- RESEARCH UNIVERSE: load early so all symbols get drawer data ----
+    _ru_today = None
+    try:
+        _ru_files = canonical_signal_files()
+        if _ru_files:
+            _ru_today = pd.read_csv(_ru_files[-1]).sort_values("composite", ascending=False).reset_index(drop=True)
+    except Exception:
+        _ru_today = None
+    _drawer_data = {}
+    _all_syms = set()
+    if t10 is not None:
+        _all_syms.update(t10["symbol"].astype(str))
+    if len(df):
+        _all_syms.update(df["symbol"].astype(str))
+    # Include ALL RU stocks so every row has drawer data
+    if _ru_today is not None:
+        _all_syms.update(_ru_today["symbol"].astype(str))
+    # 从 panel 拉 60 日 OHLCV + EMA(用于抽屉K线图)
+    _drawer_px = {s: [] for s in _all_syms}
+    _drawer_ohlcv = {s: None for s in _all_syms}
+    dp_full = _load_panel()
+    if len(dp_full):
+        try:
+            _dt = pd.to_datetime(date) if date else pd.Timestamp("today")
+            _dp = dp_full[["symbol", "Date", "Open", "High", "Low", "Close", "Volume"]].copy()
+            # Vectorized: filter once, sort once, groupby tail(220), groupby ewm
+            _dp = _dp[_dp["symbol"].isin(_all_syms) & (_dp["Date"] <= _dt)]
+            _dp = _dp.sort_values(["symbol", "Date"])
+            _dp = _dp.groupby("symbol", sort=False).tail(220)
+            _dp = _dp.groupby("symbol", sort=False).filter(lambda grp: len(grp) >= 10)
+            _g = _dp.groupby("symbol", sort=False)
+            _dp["e20"] = _g["Close"].transform(lambda x: x.ewm(span=20, adjust=False).mean())
+            _dp["e50"] = _g["Close"].transform(lambda x: x.ewm(span=50, adjust=False).mean())
+            _dp["e200"] = _g["Close"].transform(lambda x: x.ewm(span=200, adjust=False).mean())
+            tail = _dp.groupby("symbol", sort=False).tail(60)
+            for sym, grp in tail.groupby("symbol", sort=False):
+                _drawer_px[sym] = [round(float(x), 4) for x in grp["Close"].tolist()]
+                _drawer_ohlcv[sym] = {
+                    "d": [d.strftime("%m-%d") for d in grp["Date"]],
+                    "o": [round(float(x), 2) for x in grp["Open"]],
+                    "h": [round(float(x), 2) for x in grp["High"]],
+                    "l": [round(float(x), 2) for x in grp["Low"]],
+                    "c": [round(float(x), 2) for x in grp["Close"]],
+                    "v": [int(x) for x in grp["Volume"]],
+                    "e20": [round(float(x), 2) for x in grp["e20"]],
+                    "e50": [round(float(x), 2) for x in grp["e50"]],
+                    "e200": [round(float(x), 2) for x in grp["e200"]],
+                }
+        except Exception:
+            pass
+    # Build per-symbol dict: start from RU (richest columns), overlay t10, merge holdings status
+    def _row_to_dict(r):
+        return {c: r.get(c) for c in r.index}
+    _sig_dict = {}
+    if _ru_today is not None:
+        for _, r in _ru_today.iterrows():
+            s = str(r["symbol"]).strip()
+            if s: _sig_dict[s] = _row_to_dict(r)
+    if t10 is not None:
+        for _, r in t10.iterrows():
+            s = str(r["symbol"])
+            _sig_dict[s] = _row_to_dict(r)
+    if len(df):
+        for _, r in df.iterrows():
+            s = str(r["symbol"])
+            if s in _sig_dict:
+                # Overlay holdings-specific fields only
+                for col in ['status', 'alert', 'close', 'entry', 'target', 'stop']:
+                    if col in r.index and pd.notna(r.get(col)):
+                        _sig_dict[s][col] = r[col]
+            else:
+                _sig_dict[s] = _row_to_dict(r)
+    # 最近5个交易日信号分数轨迹(旧->新,含今日)
+    _score_hist = {}
+    try:
+        for _sf in canonical_signal_files()[-5:]:
+            _sd = pd.read_csv(_sf)
+            if "composite" not in _sd.columns: continue
+            _d = Path(_sf).stem.split("_")[-1][-5:]
+            for _x, _c in zip(_sd["symbol"], _sd["composite"]):
+                if pd.notna(_c):
+                    _score_hist.setdefault(str(_x), []).append([str(_d), float(_c)])
+    except Exception:
+        pass
+    for sym in _all_syms:
+        d = _sig_dict.get(sym)
+        if d is None: continue
+        def _v(col, default=None):
+            v = d.get(col, default)
+            return round(float(v), 2) if pd.notna(v) else default
+        _drawer_data[sym] = {
+            "name": str(d.get("name", "")),
+            "industry": _ind.get(sym, ""),
+            "close": _v("close"),
+            "score": _v("composite"),
+            "pscore": (float(_prev_scores[sym]) if sym in _prev_scores else None),
+            "sh": _score_hist.get(sym, []),
+            "target": _v("target"),
+            "stop": _v("stop"),
+            "entry": _v("entry"),
+            "atr": _v("atr_pct"),
+            "rr": _v("rr"),
+            "mcap": _v("market_cap_b"),
+            "phase": str(d.get("phase", "")),
+            "burst": str(d.get("burst", "")),
+            "opt_exp": str(d.get("opt_expiry", "")),
+            "opt_ev": _v("opt_ev"),
+            "alert": str(d.get("alert", "")),
+            "status": str(d.get("status", "") or d.get("execution_status", "")) or "观察",
+            "px": _drawer_px.get(sym, []),
+            "kline": _drawer_ohlcv.get(sym),
+        }
+    import json as _json
+    drawer_json = _json.dumps(_drawer_data, ensure_ascii=False)
+    # ---- RESEARCH UNIVERSE: build rows ----
+    _PHASE_LABELS = {
+        "Accumulation": "吸筹",
+        "Automatic Rally": "自动反弹",
+        "Secondary Test": "二次测试",
+        "Markup": "上涨",
+        "Distribution": "派发",
+        "Markdown": "下跌",
+        "Unknown": "未分类",
+        "(unknown)": "未分类",
+        "N/A": "不适用",
+    }
+    _ru_prices = recent_price_history()
+    _ru_rows = []
+    if _ru_today is not None:
+        for _ri, _r in _ru_today.iterrows():
+            _sym = str(_r.get("symbol", "")).strip()
+            if not _sym:
+                continue
+            _name = str(_r.get("name", "")).strip()
+            _asset = str(_r.get("asset_type", "股票"))
+            _industry = _ind.get(_sym, _name_industry(_name, _sym, is_etf=_asset == "ETF"))
+            if _industry in ("其他", "未分类", "其他股票"):
+                _industry = _name_industry(_name, _sym, is_etf=_asset == "ETF")
+            _exec_status = str(_r.get("execution_status", "观察"))
+            _status_key = {"可执行": "exec", "风险": "risk"}.get(_exec_status, "observe")
+            _sig_type = str(_r.get("signal_lifecycle", "非TOP10"))
+            _signal_key = {"新信号": "new", "持续": "cont"}.get(_sig_type, "other")
+            _close = _r.get("close")
+            _valid = lambda _x: pd.notna(_x) and float(_x) > 0
+            _fmt = lambda _x, _n=2: N(_x, _n) if _valid(_x) else "—"
+            _fpct = lambda _x: P(float(_x) * 100) if pd.notna(_x) else "\u2014"
+            _trend = spark([float(_x) for _x in _ru_prices.get(_sym, []) if pd.notna(_x)])
+            _reason = E(str(_r.get("execution_reason", "")))
+            _research_rank = int(_r.get("research_rank", _ri + 1))
+            _trade_rank_value = _r.get("trade_rank")
+            _trade_rank = (str(int(_trade_rank_value))
+                           if pd.notna(_trade_rank_value) else "—")
+            _phase = str(_r.get("phase", ""))
+            if _phase in ("nan", "None", "", "Unknown", "(unknown)"):
+                _phase = "(unknown)"
+            _tech_label = _PHASE_LABELS.get(_phase, _phase)
+            _brk = '<span class="ru-brk">突破</span>' if str(_r.get("recent_break", "")).lower() == "true" else ""
+            # 搜索走结构化字段(代码/名称/行业),阶段不参与搜索(有独立下拉,
+            # 且 "(unknown)" 含 "now" 等子串会把搜索污染成几百行)
+            _cmp = _r.get("composite")
+            _alpha = f"{_cmp:+.1f}" if pd.notna(_cmp) else "\u2014"
+            _ru_rows.append(
+                f'<tr data-ticker="{E(_sym)}" data-kind="{"etf" if _asset == "ETF" else "stock"}" '
+                f'data-status="{_status_key}" data-signal="{_signal_key}" data-phase="{E(_phase)}" '
+                f'data-name="{E(_name)}" data-industry="{E(_industry)}" title="{_reason}">'
+                f'<td class="ru-rank">{_research_rank}</td><td class="ru-rank">{_trade_rank}</td>'
+                f'<td class="ru-symbol"><span class="ru-code">{E(_sym)}</span>'
+                f'<span class="ru-subline">{E(_name)} · {E(_industry)}</span></td>'
+                f'<td class="num">{_fmt(_close)}</td>'
+                f'<td class="num">{_alpha}</td>'
+                f'<td><span class="ru-status {_status_key}">{E(_exec_status)}</span></td>'
+                f'<td>{E(_tech_label)}{_brk}</td>'
+                f'<td class="pct">{_fpct(_r.get("p_high_20"))}</td><td class="pct">{_fpct(_r.get("p_high_40"))}</td><td class="pct">{_fpct(_r.get("p_high_60"))}</td><td class="pct">{_fpct(_r.get("p_low_60"))}</td>'
+                f'<td class="num">{int(_r.get("fwd_days_to_high")) if pd.notna(_r.get("fwd_days_to_high")) else "—"}</td>'
+                f'<td class="num">{int(_r.get("fwd_days_to_low")) if pd.notna(_r.get("fwd_days_to_low")) else "—"}</td>'
+                f'<td class="num">{_fmt(_r.get("entry"))}</td><td class="num">{_fmt(_r.get("stop"))}</td><td class="num">{_fmt(_r.get("target"))}</td>'
+                f'<td class="trend">{_trend if _trend else "—"}</td></tr>'
+            )
+    ru_rows_html = "".join(_ru_rows)
+
+    ms_block = _render_market_state(_market_state(_ru_today, dp_full), date)
+    wct_block = _render_what_changed(_what_changed(_ru_today))
+    cal_block = _render_backtest_calib(_backtest_calib(_ru_today))
+    sr_block = _render_sector_rotation(_sector_rotation(_ru_today))
+    rr_block = _render_risk_radar(_risk_radar(_ru_today))
+
+    _sidebar = (
+        '<button type="button" class="mobile-menu-btn" id="menuBtn" title="展开/折叠侧边栏">☰</button>'
+        '<nav class="sidebar" id="sidebar">'
+        '<button type="button" class="sb-toggle" id="sbToggle" title="折叠侧边栏">«</button>'
+        '<div class="sb-logo">TRADING</div>'
+        '<a class="sb-item active" data-page="dashboard" href="#">Dashboard</a>'
+        '<a class="sb-item" data-page="signals" href="#">Signals</a>'
+        '<a class="sb-item" data-page="portfolio" href="#">Portfolio</a>'
+        '<a class="sb-item" data-page="research" href="#">Research</a>'
+        '<div class="sb-sep"></div>'
+        '<a class="sb-item" data-page="model" href="#">Model</a>'
+        '<a class="sb-item" data-page="tracking" href="#">Tracking</a>'
+        '</nav>'
+    )
+    _page_dashboard = '<div class="page active" id="page-dashboard">'
+    _page_signals = '<div class="page" id="page-signals">'
+    _page_portfolio = '<div class="page" id="page-portfolio">'
+    _page_research = '<div class="page" id="page-research">'
+    _page_model = '<div class="page" id="page-model">'
+    _page_tracking = '<div class="page" id="page-tracking">'
+    _page_end = '</div>'
+
+    nav_html = ''  # 菜单栏已移除，改用侧边栏导航
+    nav_js = """<script>
+(function(){
+var stKey='pg_col';
+function load(){try{return JSON.parse(localStorage.getItem(stKey)||'{}')}catch(e){return {}}}
+var st=load();
+function save(){localStorage.setItem(stKey,JSON.stringify(st))}
+function toggle(c){
+  var on=c.classList.toggle('collapsed');
+  var btn=c.querySelector('.ch-toggle');if(btn)btn.textContent=on?'\u25b8':'\u25be';
+  st[c.id]=on?1:0;save();
+  pickActive();
+}
+document.querySelectorAll('.card').forEach(function(c){
+  if(!c.id)return;
+  var ch=c.querySelector('.ch');if(!ch)return;
+  var b=document.createElement('button');
+  b.type='button';b.className='ch-toggle';b.textContent='\u25be';b.title='\u6298\u53e0/\u5c55\u5f00';
+  b.addEventListener('click',function(e){e.stopPropagation();toggle(c)});
+  ch.appendChild(b);
+  if(st[c.id])c.classList.add('collapsed');
+});
+function pickActive(){
+  var ids=[];document.querySelectorAll('.card[id]').forEach(function(c){ids.push(c.id)});
+  var cur=null;
+  for(var i=ids.length-1;i>=0;i--){
+    var el=document.getElementById(ids[i]);
+    if(el&&el.getBoundingClientRect().top<=80){cur=ids[i];break;}
+  }
+  document.querySelectorAll('#navBar button').forEach(function(b){
+    b.classList.toggle('active',b.dataset.target===cur);
+  });
+}
+document.querySelectorAll('#navBar button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target);
+    if(!el)return;
+    if(el.classList.contains('collapsed'))toggle(el);
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+window.addEventListener('scroll',pickActive,{passive:true});
+pickActive();
+/* sidebar page switching */
+var sb=document.getElementById('sidebar');
+if(sb){var pages=document.querySelectorAll('.page');
+var links=sb.querySelectorAll('.sb-item');
+var sbKey='sb_page';
+function showPage(id){
+  pages.forEach(function(p){p.classList.toggle('active',p.id==='page-'+id)});
+  links.forEach(function(l){l.classList.toggle('active',l.dataset.page===id)});
+  localStorage.setItem(sbKey,id);}
+links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();showPage(l.dataset.page)})});
+var saved=localStorage.getItem(sbKey)||'dashboard';
+showPage(saved);
+/* collapsible sidebar: desktop slides away (body.sb-hide), mobile uses .open drawer */
+var sbHideKey='sb_hide';
+function setSbHide(on){document.body.classList.toggle('sb-hide',on);try{localStorage.setItem(sbHideKey,on?'1':'0')}catch(e){}}
+function toggleSb(){if(window.innerWidth<=900){sb.classList.toggle('open')}else{setSbHide(!document.body.classList.contains('sb-hide'))}}
+var menuBtn=document.getElementById('menuBtn');
+if(menuBtn)menuBtn.addEventListener('click',function(e){e.preventDefault();toggleSb()});
+var sbToggle=document.getElementById('sbToggle');
+if(sbToggle)sbToggle.addEventListener('click',function(e){e.preventDefault();toggleSb()});
+try{if(localStorage.getItem(sbHideKey)==='1')document.body.classList.add('sb-hide')}catch(e){}
+}
+})();
+</script>"""
+    html=f"""<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{E(date)}</title><style>{CSS}
+.nav a{border:1px solid var(--line);background:#fff;color:var(--ink);font-size:13px;padding:6px 11px;
+ cursor:pointer;border-radius:3px;letter-spacing:.4px;font-family:'Space Mono',monospace;white-space:nowrap;
+ flex:0 0 auto;text-decoration:none;display:inline-block}
+.nav a:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.num{font-family:'Space Mono',monospace;font-variant-numeric:tabular-nums;text-align:right}
+.numl{font-family:'Space Mono',monospace;font-variant-numeric:tabular-nums;text-align:center}
+.rs{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--muted);text-align:left;
+ white-space:normal;min-width:260px;max-width:340px;line-height:1.5}
+.bar{height:8px;background:var(--soft);border:1px solid var(--line);min-width:80px}
+.bar i{display:block;height:100%;background:var(--ink)}
+.flag{margin:14px 16px 16px;background:#FFF6F5;border-left:5px solid var(--red);padding:12px 14px;
+ font-size:14px;line-height:1.7;color:#4a2b2b}
+.pending{margin:14px 16px 16px;background:var(--soft);border-left:5px solid var(--amber);padding:12px 14px;
+ font-size:14px;line-height:1.7;color:#4c3b1d}
+.sec-note{font-size:13px;color:var(--muted);padding:10px 16px 14px;line-height:1.7}
+.sr-item .k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);
+ text-transform:uppercase}
+.sr-item .v{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;margin-top:6px}
+.sr-item .m{font-size:12px;color:var(--muted);margin-top:6px}
+.foot{max-width:1680px;margin:26px auto 0;padding:16px 2px;border-top:1px solid var(--ink);
+ font-size:12px;color:var(--muted);line-height:1.8}
+.chartbox{padding:14px 16px 6px}
+.prod-head{max-width:1680px;margin:0 auto 14px;font-family:'Space Mono',monospace;font-size:12px;
+ letter-spacing:1px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.prod-head b{color:var(--ink)}
+</style></head>
+<body>
+<div class=hd>
+  <h1>deep ltrading</h1>
+  <div class=dt>2026-10-22</div>
+  <div class=tg>LIVE</div>
+</div>
+<div class=prod-head>
+  <span><b>892</b> 只标的</span><span>信号口径 <b>ENS 60</b></span>
+  <span>模型训练截止 <b>2026-05-27</b></span><span>生成于 <b>2026-10-23 20:46</b></span>
+</div>
+<div class=nav>
+  <a href="#market">MARKET STATE</a><a href="#champion">CHAMPION</a><a href="#quality">SIGNAL QUALITY</a>
+  <a href="#ladder">IC LADDER</a><a href="#age">DATA AGE</a><a href="#top">TOP 30</a>
+  <a href="#weights">FEATURE WEIGHTS</a><a href="#guard">GUARDS</a><a href="#sector">SECTOR</a>
+  <a href="#phase">WYCKOFF</a><a href="#burst">BURST</a><a href="#risk">RISK</a>
+  <a href="#avoid">AVOID</a><a href="#model">MODEL</a>
+</div>
+
+<div class="card ms-card" id="market">
+  <div class=ch>MARKET STATE <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">当日信号 · 2026-10-22</span></div>
+  <div class=ms-grid style='grid-template-columns:repeat(4,1fr)'><div class=ms-tile><div class=ms-label>全市场标的</div><div class='ms-value '>892</div><div class=ms-sub>股票 892 · ETF 0</div></div><div class=ms-tile><div class=ms-label>可执行</div><div class='ms-value green'>42</div><div class=ms-sub>严格准入通过</div></div><div class=ms-tile><div class=ms-label>观察</div><div class='ms-value amber'>318</div><div class=ms-sub>门槛未全过</div></div><div class=ms-tile><div class=ms-label>风险</div><div class='ms-value red'>532</div><div class=ms-sub>硬风险/负分</div></div></div><div class=ms-grid style='grid-template-columns:repeat(4,1fr)'><div class=ms-tile><div class=ms-label>新信号</div><div class='ms-value blue'>10</div><div class=ms-sub>今日新进 TOP10</div></div><div class=ms-tile><div class=ms-label>数据新鲜度</div><div class='ms-value '>92.8%</div><div class=ms-sub>892/961 只有信号</div></div><div class=ms-tile><div class=ms-label>质量通过率</div><div class='ms-value '>40.4%</div><div class=ms-sub>360 只无风险标记</div></div><div class=ms-tile><div class=ms-label>弹簧信号</div><div class='ms-value '>97</div><div class=ms-sub>破 20 日低后收复</div></div></div>
+</div>
+
+<div class="card" id="champion">
+  <div class=ch>CHAMPION <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">ens_60 Top30 · 60D 重平衡 · V2 暴露 · 回测口径</span></div>
+  <div class=chartbox><svg viewBox="0 0 1000 210" preserveAspectRatio="none" style="width:100%;height:210px;display:block"><polygon points="0,210 0.0,198.7 3.0,198.4 6.1,198.5 9.1,200.0 12.2,196.2 15.2,195.7 18.3,194.7 21.3,194.5 24.4,194.0 27.4,192.1 30.5,191.4 33.5,189.5 36.6,187.6 39.6,186.1 42.7,185.7 45.7,185.6 48.8,184.6 51.8,183.7 54.9,183.1 57.9,183.9 61.0,183.6 64.0,185.2 67.1,183.8 70.1,184.9 73.2,185.0 76.2,184.2 79.3,184.0 82.3,184.5 85.4,183.0 88.4,183.7 91.5,184.0 94.5,184.5 97.6,183.0 100.6,178.5 103.7,178.6 106.7,181.2 109.8,178.9 112.8,180.6 115.9,180.3 118.9,179.5 122.0,176.7 125.0,177.1 128.0,176.4 131.1,177.1 134.1,176.8 137.2,177.9 140.2,178.6 143.3,178.3 146.3,178.7 149.4,179.2 152.4,179.0 155.5,179.2 158.5,178.5 161.6,178.4 164.6,178.9 167.7,179.4 170.7,178.8 173.8,178.9 176.8,178.8 179.9,179.0 182.9,178.8 186.0,178.5 189.0,178.3 192.1,177.8 195.1,177.7 198.2,177.1 201.2,177.5 204.3,177.3 207.3,177.9 210.4,177.9 213.4,177.8 216.5,177.9 219.5,178.5 222.6,178.5 225.6,178.0 228.7,178.6 231.7,178.5 234.8,178.4 237.8,178.2 240.9,178.4 243.9,178.5 247.0,178.1 250.0,178.3 253.0,178.3 256.1,178.0 259.1,178.4 262.2,178.1 265.2,178.7 268.3,178.7 271.3,178.7 274.4,178.7 277.4,178.0 280.5,178.1 283.5,177.8 286.6,177.5 289.6,177.2 292.7,177.5 295.7,176.8 298.8,177.3 301.8,177.3 304.9,177.1 307.9,177.5 311.0,177.4 314.0,177.3 317.1,177.1 320.1,177.1 323.2,176.9 326.2,176.9 329.3,177.0 332.3,177.0 335.4,177.2 338.4,176.7 341.5,176.6 344.5,176.4 347.6,176.1 350.6,175.5 353.7,174.8 356.7,173.7 359.8,173.2 362.8,174.1 365.9,172.5 368.9,171.7 372.0,166.8 375.0,164.8 378.0,166.0 381.1,162.9 384.1,164.0 387.2,165.0 390.2,165.6 393.3,165.6 396.3,165.1 399.4,163.5 402.4,164.0 405.5,163.7 408.5,165.1 411.6,165.7 414.6,165.3 417.7,165.3 420.7,165.3 423.8,165.3 426.8,165.4 429.9,165.9 432.9,164.3 436.0,164.6 439.0,162.4 442.1,161.9 445.1,160.4 448.2,157.4 451.2,157.5 454.3,153.9 457.3,153.5 460.4,150.9 463.4,153.1 466.5,152.2 469.5,152.8 472.6,151.9 475.6,152.0 478.7,151.3 481.7,148.6 484.8,146.9 487.8,144.9 490.9,141.2 493.9,137.5 497.0,135.6 500.0,135.0 503.0,136.1 506.1,132.9 509.1,133.1 512.2,132.7 515.2,131.8 518.3,133.9 521.3,133.6 524.4,132.5 527.4,131.7 530.5,131.0 533.5,128.3 536.6,127.0 539.6,126.2 542.7,127.3 545.7,126.1 548.8,124.5 551.8,124.4 554.9,124.2 557.9,123.7 561.0,122.9 564.0,121.0 567.1,121.9 570.1,122.8 573.2,121.9 576.2,123.1 579.3,122.6 582.3,121.1 585.4,121.1 588.4,120.9 591.5,121.4 594.5,121.5 597.6,120.0 600.6,118.3 603.7,116.8 606.7,117.0 609.8,115.2 612.8,113.3 615.9,113.1 618.9,113.5 622.0,112.7 625.0,111.7 628.0,104.9 631.1,104.3 634.1,100.8 637.2,100.1 640.2,98.5 643.3,99.8 646.3,98.9 649.4,99.8 652.4,99.7 655.5,98.5 658.5,98.3 661.6,96.5 664.6,93.2 667.7,94.6 670.7,93.8 673.8,92.5 676.8,92.8 679.9,93.5 682.9,94.5 686.0,94.9 689.0,95.4 692.1,94.8 695.1,94.8 698.2,94.6 701.2,94.6 704.3,95.9 707.3,95.2 710.4,95.4 713.4,94.6 716.5,94.6 719.5,94.4 722.6,93.2 725.6,93.0 728.7,93.3 731.7,93.4 734.8,92.5 737.8,91.4 740.9,91.5 743.9,90.0 747.0,88.5 750.0,88.0 753.0,87.0 756.1,85.8 759.1,84.5 762.2,83.9 765.2,82.7 768.3,80.9 771.3,79.6 774.4,80.2 777.4,77.1 780.5,76.7 783.5,73.8 786.6,71.7 789.6,70.0 792.7,70.0 795.7,69.2 798.8,67.3 801.8,68.2 804.9,66.9 807.9,67.8 811.0,65.0 814.0,64.9 817.1,65.0 820.1,65.5 823.2,65.6 826.2,64.7 829.3,63.6 832.3,58.6 835.4,58.3 838.4,59.2 841.5,57.3 844.5,58.3 847.6,54.2 850.6,52.4 853.7,52.6 856.7,52.2 859.8,51.8 862.8,52.6 865.9,48.9 868.9,47.5 872.0,47.3 875.0,45.4 878.0,45.3 881.1,45.5 884.1,44.6 887.2,45.1 890.2,46.4 893.3,43.4 896.3,42.3 899.4,36.0 902.4,34.4 905.5,35.8 908.5,33.5 911.6,32.1 914.6,31.1 917.7,30.6 920.7,28.1 923.8,25.3 926.8,25.5 929.9,24.6 932.9,24.7 936.0,24.4 939.0,22.6 942.1,24.1 945.1,24.2 948.2,24.8 951.2,24.2 954.3,25.4 957.3,22.1 960.4,18.7 963.4,16.0 966.5,17.1 969.5,16.8 972.6,17.0 975.6,16.0 978.7,16.7 981.7,15.0 984.8,12.9 987.8,13.0 990.9,10.0 993.9,11.6 997.0,13.2 1000.0,13.2 1000,210" fill="#15171A" opacity=".07"/><polyline points="0.0,198.7 3.0,198.4 6.1,198.5 9.1,200.0 12.2,196.2 15.2,195.7 18.3,194.7 21.3,194.5 24.4,194.0 27.4,192.1 30.5,191.4 33.5,189.5 36.6,187.6 39.6,186.1 42.7,185.7 45.7,185.6 48.8,184.6 51.8,183.7 54.9,183.1 57.9,183.9 61.0,183.6 64.0,185.2 67.1,183.8 70.1,184.9 73.2,185.0 76.2,184.2 79.3,184.0 82.3,184.5 85.4,183.0 88.4,183.7 91.5,184.0 94.5,184.5 97.6,183.0 100.6,178.5 103.7,178.6 106.7,181.2 109.8,178.9 112.8,180.6 115.9,180.3 118.9,179.5 122.0,176.7 125.0,177.1 128.0,176.4 131.1,177.1 134.1,176.8 137.2,177.9 140.2,178.6 143.3,178.3 146.3,178.7 149.4,179.2 152.4,179.0 155.5,179.2 158.5,178.5 161.6,178.4 164.6,178.9 167.7,179.4 170.7,178.8 173.8,178.9 176.8,178.8 179.9,179.0 182.9,178.8 186.0,178.5 189.0,178.3 192.1,177.8 195.1,177.7 198.2,177.1 201.2,177.5 204.3,177.3 207.3,177.9 210.4,177.9 213.4,177.8 216.5,177.9 219.5,178.5 222.6,178.5 225.6,178.0 228.7,178.6 231.7,178.5 234.8,178.4 237.8,178.2 240.9,178.4 243.9,178.5 247.0,178.1 250.0,178.3 253.0,178.3 256.1,178.0 259.1,178.4 262.2,178.1 265.2,178.7 268.3,178.7 271.3,178.7 274.4,178.7 277.4,178.0 280.5,178.1 283.5,177.8 286.6,177.5 289.6,177.2 292.7,177.5 295.7,176.8 298.8,177.3 301.8,177.3 304.9,177.1 307.9,177.5 311.0,177.4 314.0,177.3 317.1,177.1 320.1,177.1 323.2,176.9 326.2,176.9 329.3,177.0 332.3,177.0 335.4,177.2 338.4,176.7 341.5,176.6 344.5,176.4 347.6,176.1 350.6,175.5 353.7,174.8 356.7,173.7 359.8,173.2 362.8,174.1 365.9,172.5 368.9,171.7 372.0,166.8 375.0,164.8 378.0,166.0 381.1,162.9 384.1,164.0 387.2,165.0 390.2,165.6 393.3,165.6 396.3,165.1 399.4,163.5 402.4,164.0 405.5,163.7 408.5,165.1 411.6,165.7 414.6,165.3 417.7,165.3 420.7,165.3 423.8,165.3 426.8,165.4 429.9,165.9 432.9,164.3 436.0,164.6 439.0,162.4 442.1,161.9 445.1,160.4 448.2,157.4 451.2,157.5 454.3,153.9 457.3,153.5 460.4,150.9 463.4,153.1 466.5,152.2 469.5,152.8 472.6,151.9 475.6,152.0 478.7,151.3 481.7,148.6 484.8,146.9 487.8,144.9 490.9,141.2 493.9,137.5 497.0,135.6 500.0,135.0 503.0,136.1 506.1,132.9 509.1,133.1 512.2,132.7 515.2,131.8 518.3,133.9 521.3,133.6 524.4,132.5 527.4,131.7 530.5,131.0 533.5,128.3 536.6,127.0 539.6,126.2 542.7,127.3 545.7,126.1 548.8,124.5 551.8,124.4 554.9,124.2 557.9,123.7 561.0,122.9 564.0,121.0 567.1,121.9 570.1,122.8 573.2,121.9 576.2,123.1 579.3,122.6 582.3,121.1 585.4,121.1 588.4,120.9 591.5,121.4 594.5,121.5 597.6,120.0 600.6,118.3 603.7,116.8 606.7,117.0 609.8,115.2 612.8,113.3 615.9,113.1 618.9,113.5 622.0,112.7 625.0,111.7 628.0,104.9 631.1,104.3 634.1,100.8 637.2,100.1 640.2,98.5 643.3,99.8 646.3,98.9 649.4,99.8 652.4,99.7 655.5,98.5 658.5,98.3 661.6,96.5 664.6,93.2 667.7,94.6 670.7,93.8 673.8,92.5 676.8,92.8 679.9,93.5 682.9,94.5 686.0,94.9 689.0,95.4 692.1,94.8 695.1,94.8 698.2,94.6 701.2,94.6 704.3,95.9 707.3,95.2 710.4,95.4 713.4,94.6 716.5,94.6 719.5,94.4 722.6,93.2 725.6,93.0 728.7,93.3 731.7,93.4 734.8,92.5 737.8,91.4 740.9,91.5 743.9,90.0 747.0,88.5 750.0,88.0 753.0,87.0 756.1,85.8 759.1,84.5 762.2,83.9 765.2,82.7 768.3,80.9 771.3,79.6 774.4,80.2 777.4,77.1 780.5,76.7 783.5,73.8 786.6,71.7 789.6,70.0 792.7,70.0 795.7,69.2 798.8,67.3 801.8,68.2 804.9,66.9 807.9,67.8 811.0,65.0 814.0,64.9 817.1,65.0 820.1,65.5 823.2,65.6 826.2,64.7 829.3,63.6 832.3,58.6 835.4,58.3 838.4,59.2 841.5,57.3 844.5,58.3 847.6,54.2 850.6,52.4 853.7,52.6 856.7,52.2 859.8,51.8 862.8,52.6 865.9,48.9 868.9,47.5 872.0,47.3 875.0,45.4 878.0,45.3 881.1,45.5 884.1,44.6 887.2,45.1 890.2,46.4 893.3,43.4 896.3,42.3 899.4,36.0 902.4,34.4 905.5,35.8 908.5,33.5 911.6,32.1 914.6,31.1 917.7,30.6 920.7,28.1 923.8,25.3 926.8,25.5 929.9,24.6 932.9,24.7 936.0,24.4 939.0,22.6 942.1,24.1 945.1,24.2 948.2,24.8 951.2,24.2 954.3,25.4 957.3,22.1 960.4,18.7 963.4,16.0 966.5,17.1 969.5,16.8 972.6,17.0 975.6,16.0 978.7,16.7 981.7,15.0 984.8,12.9 987.8,13.0 990.9,10.0 993.9,11.6 997.0,13.2 1000.0,13.2" fill="none" stroke="#15171A" stroke-width="2"/></svg></div>
+  <div class=ms-grid style='grid-template-columns:repeat(4,1fr)'><div class=ms-tile><div class=ms-label>区间</div><div class='ms-value '>2021-08-02 →</div><div class=ms-sub>2026-10-22</div></div><div class=ms-tile><div class=ms-label>累计</div><div class='ms-value green'>3011%</div><div class=ms-sub>V2 暴露后</div></div><div class=ms-tile><div class=ms-label>Sharpe</div><div class='ms-value '>3.77</div><div class=ms-sub>日频年化</div></div><div class=ms-tile><div class=ms-label>最大回撤</div><div class='ms-value red'>-8.1%</div><div class=ms-sub>V2 暴露后</div></div></div>
+  <div class=ms-grid style='grid-template-columns:repeat(4,1fr)'><div class=ms-tile><div class=ms-label>当前暴露</div><div class='ms-value '>15%</div><div class=ms-sub>末日 V2 暴露</div></div><div class=ms-tile><div class=ms-label>V2 分解</div><div class='ms-value '>DD 0.15 × IC 1.00</div><div class=ms-sub>乘法组合</div></div><div class=ms-tile><div class=ms-label>当前回撤</div><div class='ms-value red'>-21.2%</div><div class=ms-sub>裸收益口径</div></div><div class=ms-tile><div class=ms-label>生产风控</div><div class='ms-value green'>🟢 正常</div><div class=ms-sub>production_risk_monitor</div></div></div>
+  <div class=sec-note>回测口径（样本外预测 + 面板延伸），不是实盘净值。IC 层因存档断更降级为 1.0，暴露由 DD 层单独决定。</div>
+</div>
+
+<div class="card" id="quality">
+  <div class=ch>SIGNAL QUALITY <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">OOS 面板 ens 信号 · 逐日秩相关 IC</span></div>
+  <div class=tw><table>
+    <thead><tr><th>周期</th><th>ENS IC</th><th>t</th><th>交易日数</th></tr></thead>
+    <tbody><tr><td class=numl>20 日</td><td class='num green'>+0.0292</td><td class=num>10.2</td><td class=numl>1212</td></tr><tr><td class=numl>40 日</td><td class='num green'>+0.0439</td><td class=num>14.0</td><td class=numl>1212</td></tr><tr><td class=numl>60 日</td><td class='num green'>+0.0601</td><td class=num>18.5</td><td class=numl>1212</td></tr></tbody>
   </table></div>
-  <div class="note">样本 1,062,740 行，覆盖 2021-08-02 → 2026-05-29。ENS = 逐日 rank(MLP)+rank(LGB) 平均，与生产 score_60 同构（oos_ens_guard 已校验全等）。这是模型排序能力，不是组合收益；组合收益看上面的 CHAMPION。</div>
-</section>
+  <div class=sec-note>样本 1,062,740 行，2021-08-02 → 2026-05-29。ENS = 逐日 rank(MLP)+rank(LGB) 平均，与生产 score_60 同构（oos_ens_guard 校验全等）。IC 是排序能力，不是收益；收益看 CHAMPION。</div>
+</div>
 
-<section id="ladder">
-  <h2>IC LADDER <small>20/40/60 日滚动 IC · 各档位当前能看到的最新结论</small></h2>
-  <div class="tw"><table>
-    <thead><tr><th>档位</th><th>滚动 60 日 IC</th><th style="text-align:left">截至</th><th>全序列最新</th></tr></thead>
-    <tbody><tr><td class=num>T-20</td><td class=num>+0.1001</td><td class=dim>2026-04-30</td><td class=num>+0.1047</td></tr><tr><td class=num>T-40</td><td class=num>+0.0980</td><td class=dim>2026-04-01</td><td class=num>+0.1262</td></tr><tr><td class=num>T-60</td><td class=num>+0.0706</td><td class=dim>2026-03-04</td><td class=num>+0.1270</td></tr></tbody>
+<div class="card" id="ladder">
+  <div class=ch>IC LADDER <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">20/40/60 日滚动 IC · 各档位当前能看到的最新结论</span></div>
+  <div class=tw><table>
+    <thead><tr><th>档位</th><th>滚动 60 日 IC</th><th>截至</th><th>全序列最新</th></tr></thead>
+    <tbody><tr><td class=numl>T-20</td><td class='num green'>+0.1001</td><td class=numl>2026-04-30</td><td class='num' style='color:var(--muted)'>+0.1047</td></tr><tr><td class=numl>T-40</td><td class='num green'>+0.0980</td><td class=numl>2026-04-01</td><td class='num' style='color:var(--muted)'>+0.1262</td></tr><tr><td class=numl>T-60</td><td class='num green'>+0.0706</td><td class=numl>2026-03-04</td><td class='num' style='color:var(--muted)'>+0.1270</td></tr></tbody>
   </table></div>
-  <div class="note">最高档为 T-20（+0.1001），意味着用 20 个交易日前的截止滚动 60 日 IC 就能看到当前结论。短周期标签成熟快、长周期慢，这才是「退化发现滞后」的来源。</div>
-</section>
+  <div class=sec-note>最高档 T-20（+0.1001）。短周期标签成熟快、长周期慢——这就是「模型退化发现滞后」的来源。</div>
+</div>
 
-<section id="age">
-  <h2>DATA AGE <small>各数据源最后刷新 · 相对报告日 2026-10-22</small></h2>
-  <div class="tw"><table>
-    <thead><tr><th>数据源</th><th style="text-align:left">最后日期</th><th>年龄</th><th style="text-align:left">刷新节奏</th></tr></thead>
-    <tbody><tr><td>行情面板</td><td class=dim>2026-10-23</td><td class=ok>今日</td><td class=dim>每日盘后</td></tr><tr><td>特征数据集</td><td class=dim>2026-10-23</td><td class=ok>今日</td><td class=dim>重训前重建</td></tr><tr><td>当日信号</td><td class=dim>2026-10-23</td><td class=ok>今日</td><td class=dim>每日 2 次</td></tr><tr><td>OOS 面板</td><td class=dim>2026-10-23</td><td class=ok>今日</td><td class=dim>walkforward 手动</td></tr><tr><td>冠军净值</td><td class=dim>2026-10-23</td><td class=ok>今日</td><td class=dim>每日</td></tr><tr><td>信号存档</td><td class=dim>2026-10-23</td><td class=ok>今日</td><td class=dim>每日</td></tr><tr><td>V2 暴露</td><td class=dim>2026-10-23</td><td class=ok>今日</td><td class=dim>每日 2 次</td></tr><tr><td>生产风控</td><td class=dim>2026-10-23</td><td class=ok>今日</td><td class=dim>每日盘后</td></tr><tr><td>分数桶校准</td><td class=dim>—</td><td class=miss>缺失</td><td class=dim>60 日标签成熟后</td></tr><tr><td>期权 EV</td><td class=dim>—</td><td class=miss>缺失</td><td class=dim>样本成熟后</td></tr><tr><td>持仓提醒</td><td class=dim>—</td><td class=miss>缺失</td><td class=dim>需 holdings.csv</td></tr><tr><td>模型训练截止</td><td class=dim>2026-05-27</td><td class=bad>148 天</td><td class=dim>重训时更新</td></tr><tr><td>基本面缓存</td><td class=dim>—</td><td class=ok>959 只</td><td class=dim>按需刷新</td></tr></tbody>
+<div class="card" id="age">
+  <div class=ch>DATA AGE <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">各数据源最后刷新 · 相对报告日 2026-10-22</span></div>
+  <div class=tw><table>
+    <thead><tr><th style='text-align:left'>数据源</th><th>最后日期</th><th>年龄</th><th style='text-align:left'>刷新节奏</th></tr></thead>
+    <tbody><tr><td class=industry style='text-align:left;font-size:14px'>行情面板</td><td class=numl>2026-10-23</td><td class=numl green>今日</td><td class=industry style='text-align:left;font-size:13px'>每日盘后</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>特征数据集</td><td class=numl>2026-10-23</td><td class=numl green>今日</td><td class=industry style='text-align:left;font-size:13px'>重训前重建</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>当日信号</td><td class=numl>2026-10-23</td><td class=numl green>今日</td><td class=industry style='text-align:left;font-size:13px'>每日 2 次</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>OOS 面板</td><td class=numl>2026-10-23</td><td class=numl green>今日</td><td class=industry style='text-align:left;font-size:13px'>walkforward 手动</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>冠军净值</td><td class=numl>2026-10-23</td><td class=numl green>今日</td><td class=industry style='text-align:left;font-size:13px'>每日</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>信号存档</td><td class=numl>2026-10-23</td><td class=numl green>今日</td><td class=industry style='text-align:left;font-size:13px'>每日</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>V2 暴露</td><td class=numl>2026-10-23</td><td class=numl green>今日</td><td class=industry style='text-align:left;font-size:13px'>每日 2 次</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>生产风控</td><td class=numl>2026-10-23</td><td class=numl green>今日</td><td class=industry style='text-align:left;font-size:13px'>每日盘后</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>分数桶校准</td><td class=numl>—</td><td class=numl red>缺失</td><td class=industry style='text-align:left;font-size:13px'>60 日标签成熟后</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>期权 EV</td><td class=numl>—</td><td class=numl red>缺失</td><td class=industry style='text-align:left;font-size:13px'>样本成熟后</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>持仓提醒</td><td class=numl>—</td><td class=numl red>缺失</td><td class=industry style='text-align:left;font-size:13px'>需 holdings.csv</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>模型训练截止</td><td class=numl>2026-05-27</td><td class=numl red>148 天</td><td class=industry style='text-align:left;font-size:13px'>重训时更新</td></tr><tr><td class=industry style='text-align:left;font-size:14px'>基本面缓存</td><td class=numl>—</td><td class=numl green>959 只</td><td class=industry style='text-align:left;font-size:13px'>按需刷新</td></tr></tbody>
   </table></div>
-  <div class="note">年龄大不等于链漏跑：节奏一列是该源「能」多快更新。分数桶校准与期权 EV 现在还是缺失 —— 它们要等 60 个交易日后标签成熟才有样本。</div>
-</section>
+  <div class=sec-note>年龄大不等于链漏跑：节奏是该源「能」多快更新。分数桶校准与期权 EV 仍缺——要等 60 个交易日后标签成熟。</div>
+</div>
 
-<section id="top">
-  <h2>TOP 30 · 做多候选 <small>composite 排名 · REASON = LGB60 重要性 × 当日横截面分位</small></h2>
-  <div class="tw"><table>
-    <thead><tr><th>#</th><th>CODE</th><th>NAME</th><th>CLOSE</th><th>20D</th><th>40D</th><th>60D</th><th>TGT</th><th>STOP</th><th>RR</th><th style="text-align:left">REASON</th></tr></thead>
-    <tbody><tr><td class=rk>1</td><td class=cd>COHR<span class=fl>NEW</span><div class=ind>综合行业</div></td><td class=nm>Coherent Corp. Common Stoc</td><td class=num>207.82</td><td class=num>+9.9%</td><td class=num>+14.2%</td><td class=num>+22.1%</td><td class=num>254.61</td><td class=num dim>176.65</td><td class=num>1.50</td><td class=rs>ATR14%高100 · 60日波动率高99 · 距250日低点高70</td></tr><tr><td class=rk>2</td><td class=cd>SKYD<span class=fl>弹簧·NEW</span><div class=ind>综合行业</div></td><td class=nm>Skydance Corporation Class</td><td class=num>7.79</td><td class=num>+6.4%</td><td class=num>+13.8%</td><td class=num>+22.9%</td><td class=num>9.53</td><td class=num dim>6.72</td><td class=num>1.62</td><td class=rs>ATR14%高98 · 60日波动率高90 · 距250日高点低93</td></tr><tr><td class=rk>3</td><td class=cd>SMTC<span class=fl>NEW</span><div class=ind>综合行业</div></td><td class=nm>Semtech Corporation Common</td><td class=num>125.12</td><td class=num>+9.0%</td><td class=num>+12.8%</td><td class=num>+17.8%</td><td class=num>150.35</td><td class=num dim>106.35</td><td class=num>1.34</td><td class=rs>ATR14%高99 · 距250日低点高86 · 60日波动率高98</td></tr><tr><td class=rk>4</td><td class=cd>DOCN<span class=fl>NEW</span><div class=ind>综合行业</div></td><td class=nm>DigitalOcean Holdings, Inc</td><td class=num>92.00</td><td class=num>+6.5%</td><td class=num>+10.5%</td><td class=num>+18.3%</td><td class=num>115.56</td><td class=num dim>78.20</td><td class=num>1.71</td><td class=rs>ATR14%高99 · 距250日低点高92 · 60日波动率高97</td></tr><tr><td class=rk>5</td><td class=cd>TEM<span class=fl>弹簧·NEW</span><div class=ind>综合行业</div></td><td class=nm>Tempus AI, Inc. Class A Co</td><td class=num>63.81</td><td class=num>+4.5%</td><td class=num>+10.1%</td><td class=num>+15.8%</td><td class=num>82.91</td><td class=num dim>55.46</td><td class=num>2.29</td><td class=rs>ATR14%高97 · 60日波动率高99 · 距250日低点高54</td></tr><tr><td class=rk>6</td><td class=cd>IREN<span class=fl>NEW</span><div class=ind>综合行业</div></td><td class=nm>IREN Limited Ordinary Shar</td><td class=num>25.51</td><td class=num>+9.5%</td><td class=num>+9.5%</td><td class=num>+14.4%</td><td class=num>31.65</td><td class=num dim>21.68</td><td class=num>1.61</td><td class=rs>ATR14%高100 · 距250日低点低95 · 60日波动率高100</td></tr><tr><td class=rk>7</td><td class=cd>CRS<span class=fl>NEW</span><div class=ind>美国大盘</div></td><td class=nm>Carpenter Technology Corpo</td><td class=num>292.26</td><td class=num>+6.4%</td><td class=num>+12.7%</td><td class=num>+20.9%</td><td class=num>349.77</td><td class=num dim>264.12</td><td class=num>2.04</td><td class=rs>ATR14%高90 · 距250日低点低95 · 60日波动率高71</td></tr><tr><td class=rk>8</td><td class=cd>SITM<span class=fl>NEW</span><div class=ind>综合行业</div></td><td class=nm>SiTime Corporation Common </td><td class=num>462.72</td><td class=num>+4.7%</td><td class=num>+7.8%</td><td class=num>+11.7%</td><td class=num>573.06</td><td class=num dim>400.46</td><td class=num>1.77</td><td class=rs>ATR14%高97 · 距250日低点高80 · 60日波动率高99</td></tr><tr><td class=rk>9</td><td class=cd>ASTS<span class=fl>NEW</span><div class=ind>综合行业</div></td><td class=nm>AST SpaceMobile, Inc. Clas</td><td class=num>38.77</td><td class=num>+6.6%</td><td class=num>+6.2%</td><td class=num>+12.9%</td><td class=num>52.01</td><td class=num dim>32.95</td><td class=num>2.28</td><td class=rs>ATR14%高100 · 距250日低点低95 · 60日波动率高96</td></tr><tr><td class=rk>10</td><td class=cd>TWLO<span class=fl>弹簧·NEW</span><div class=ind>综合行业</div></td><td class=nm>Twilio Inc. Class A Common</td><td class=num>253.63</td><td class=num>+5.9%</td><td class=num>+11.8%</td><td class=num>+16.8%</td><td class=num>304.24</td><td class=num dim>229.65</td><td class=num>2.11</td><td class=rs>ATR14%高90 · 距250日低点高92 · 60日波动率高93</td></tr><tr><td class=rk>11</td><td class=cd>SMCI<span class=fl>弹簧</span><div class=ind>综合行业</div></td><td class=nm>Super Micro Computer, Inc.</td><td class=num>33.72</td><td class=num>+4.5%</td><td class=num>+9.4%</td><td class=num>+13.7%</td><td class=num>41.43</td><td class=num dim>29.76</td><td class=num>1.95</td><td class=rs>ATR14%高95 · 60日波动率高95 · 距250日低点高73</td></tr><tr><td class=rk>12</td><td class=cd>P<div class=ind>综合行业</div></td><td class=nm>Everpure, Inc. Class A com</td><td class=num>121.20</td><td class=num>+5.1%</td><td class=num>+10.6%</td><td class=num>+15.3%</td><td class=num>152.97</td><td class=num dim>109.54</td><td class=num>2.72</td><td class=rs>ATR14%高90 · 距250日低点高88 · 60日波动率高91</td></tr><tr><td class=rk>13</td><td class=cd>MDB<div class=ind>综合行业</div></td><td class=nm>MongoDB, Inc. Class A Comm</td><td class=num>362.24</td><td class=num>+3.0%</td><td class=num>+8.9%</td><td class=num>+13.1%</td><td class=num>430.66</td><td class=num dim>324.33</td><td class=num>1.80</td><td class=rs>ATR14%高93 · 60日波动率高94 · 距250日低点高70</td></tr><tr><td class=rk>14</td><td class=cd>CRDO<span class=fl>弹簧</span><div class=ind>美国大盘</div></td><td class=nm>Credo Technology Group Hol</td><td class=num>162.77</td><td class=num>+1.5%</td><td class=num>+4.5%</td><td class=num>+10.1%</td><td class=num>218.02</td><td class=num dim>139.64</td><td class=num>2.39</td><td class=rs>ATR14%高98 · 距250日低点高79 · 60日波动率高98</td></tr><tr><td class=rk>15</td><td class=cd>TSEM<div class=ind>半导体</div></td><td class=nm>Tower Semiconductor Ltd. O</td><td class=num>167.71</td><td class=num>+3.1%</td><td class=num>+6.1%</td><td class=num>+10.6%</td><td class=num>206.90</td><td class=num dim>144.71</td><td class=num>1.70</td><td class=rs>ATR14%高98 · 距250日低点高89 · 60日波动率高96</td></tr><tr><td class=rk>16</td><td class=cd>ATI<div class=ind>综合行业</div></td><td class=nm>ATI Inc. Common Stock</td><td class=num>161.84</td><td class=num>+6.2%</td><td class=num>+12.1%</td><td class=num>+16.1%</td><td class=num>187.89</td><td class=num dim>148.91</td><td class=num>2.02</td><td class=rs>ATR14%高83 · 距250日低点高76 · 60日波动率高58</td></tr><tr><td class=rk>17</td><td class=cd>ENTG<div class=ind>综合行业</div></td><td class=nm>Entegris, Inc. Common Stoc</td><td class=num>128.31</td><td class=num>+4.8%</td><td class=num>+9.4%</td><td class=num>+13.3%</td><td class=num>148.08</td><td class=num dim>115.48</td><td class=num>1.54</td><td class=rs>ATR14%高92 · 距250日低点高80 · 60日波动率高90</td></tr><tr><td class=rk>18</td><td class=cd>RVMD<span class=fl>弹簧</span><div class=ind>综合行业</div></td><td class=nm>Revolution Medicines, Inc.</td><td class=num>187.69</td><td class=num>+8.5%</td><td class=num>+17.1%</td><td class=num>+22.3%</td><td class=num>213.43</td><td class=num dim>173.48</td><td class=num>1.81</td><td class=rs>ATR14%高80 · 距250日低点高99 · 60日波动率高57</td></tr><tr><td class=rk>19</td><td class=cd>OKTA<span class=fl>弹簧</span><div class=ind>综合行业</div></td><td class=nm>Okta, Inc. Class A Common </td><td class=num>201.33</td><td class=num>+4.1%</td><td class=num>+7.8%</td><td class=num>+11.6%</td><td class=num>252.41</td><td class=num dim>184.22</td><td class=num>2.99</td><td class=rs>ATR14%高86 · 距250日低点高98 · 60日波动率高96</td></tr><tr><td class=rk>20</td><td class=cd>FLEX<div class=ind>综合行业</div></td><td class=nm>Flex Ltd. Ordinary Shares</td><td class=num>76.69</td><td class=num>+4.0%</td><td class=num>+5.8%</td><td class=num>+10.6%</td><td class=num>91.99</td><td class=num dim>66.73</td><td class=num>1.54</td><td class=rs>ATR14%高97 · 60日波动率高84 · 距250日高点低92</td></tr><tr><td class=rk>21</td><td class=cd>GH<span class=fl>弹簧</span><div class=ind>医疗健康</div></td><td class=nm>Guardant Health, Inc. Comm</td><td class=num>162.94</td><td class=num>+6.8%</td><td class=num>+13.7%</td><td class=num>+19.5%</td><td class=num>180.15</td><td class=num dim>150.20</td><td class=num>1.35</td><td class=rs>ATR14%高82 · 距250日低点高91 · 60日波动率高63</td></tr><tr><td class=rk>22</td><td class=cd>NVT<div class=ind>公用事业</div></td><td class=nm>nVent Electric plc Ordinar</td><td class=num>127.67</td><td class=num>+3.1%</td><td class=num>+6.4%</td><td class=num>+10.9%</td><td class=num>143.59</td><td class=num dim>115.37</td><td class=num>1.29</td><td class=rs>ATR14%高91 · 60日波动率高78 · 价格/200日均线低69</td></tr><tr><td class=rk>23</td><td class=cd>LITE<div class=ind>综合行业</div></td><td class=nm>Lumentum Holdings Inc. Com</td><td class=num>752.54</td><td class=num>+6.7%</td><td class=num>+12.1%</td><td class=num>+14.0%</td><td class=num>885.60</td><td class=num dim>647.51</td><td class=num>1.27</td><td class=rs>ATR14%高98 · 行业60日高82 · 市值(对数)低72</td></tr><tr><td class=rk>24</td><td class=cd>CRWD<span class=fl>弹簧</span><div class=ind>软件</div></td><td class=nm>CrowdStrike Holdings, Inc.</td><td class=num>237.94</td><td class=num>+3.7%</td><td class=num>+8.3%</td><td class=num>+14.5%</td><td class=num>273.37</td><td class=num dim>219.77</td><td class=num>1.95</td><td class=rs>ATR14%高81 · 行业60日高82 · 市值(对数)高88</td></tr><tr><td class=rk>25</td><td class=cd>MRVL<div class=ind>半导体</div></td><td class=nm>Marvell Technology, Inc. C</td><td class=num>223.47</td><td class=num>+8.4%</td><td class=num>+15.7%</td><td class=num>+22.6%</td><td class=num>257.50</td><td class=num dim>198.70</td><td class=num>1.37</td><td class=rs>ATR14%高94 · 行业60日高82 · 市值(对数)高85</td></tr><tr><td class=rk>26</td><td class=cd>GGG<div class=ind>综合行业</div></td><td class=nm>Graco Inc. Common Stock</td><td class=num>69.28</td><td class=num>+2.1%</td><td class=num>+7.8%</td><td class=num>+14.0%</td><td class=num>76.36</td><td class=num dim>65.87</td><td class=num>2.07</td><td class=rs>市值(对数)低99 · ATR14%高40 · 距250日低点低96</td></tr><tr><td class=rk>27</td><td class=cd>U<div class=ind>软件/云服务</div></td><td class=nm>Unity Software Inc. Common</td><td class=num>40.27</td><td class=num>+4.8%</td><td class=num>+9.9%</td><td class=num>+13.5%</td><td class=num>45.43</td><td class=num dim>37.05</td><td class=num>1.60</td><td class=rs>ATR14%高84 · 距250日低点高92 · 60日波动率高80</td></tr><tr><td class=rk>28</td><td class=cd>TEAM<div class=ind>软件</div></td><td class=nm>Atlassian Corporation Clas</td><td class=num>223.16</td><td class=num>+2.3%</td><td class=num>+5.3%</td><td class=num>+8.2%</td><td class=num>267.53</td><td class=num dim>209.46</td><td class=num>3.24</td><td class=rs>ATR14%高66 · 行业60日高82 · 市值(对数)低81</td></tr><tr><td class=rk>29</td><td class=cd>FROG<span class=fl>弹簧</span><div class=ind>综合行业</div></td><td class=nm>JFrog Ltd. Ordinary Shares</td><td class=num>93.89</td><td class=num>+4.9%</td><td class=num>+11.0%</td><td class=num>+15.6%</td><td class=num>103.65</td><td class=num dim>85.16</td><td class=num>1.12</td><td class=rs>ATR14%高89 · 距250日低点高95 · 60日波动率高86</td></tr><tr><td class=rk>30</td><td class=cd>MTSI<div class=ind>美国大盘</div></td><td class=nm>MACOM Technology Solutions</td><td class=num>229.73</td><td class=num>+1.1%</td><td class=num>+3.6%</td><td class=num>+7.0%</td><td class=num>264.72</td><td class=num dim>200.52</td><td class=num>1.20</td><td class=rs>ATR14%高96 · 60日波动率高95 · 距250日低点高65</td></tr></tbody>
+<div class="card top-card" id="top">
+  <div class=ch>TOP 30 · 做多候选 <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">composite 排名 · REASON = LGB60 重要性 × 当日横截面分位</span></div>
+  <div class="tw top-scroll"><table>
+    <thead><tr><th>#</th><th>CODE</th><th>NAME</th><th>CLOSE</th><th>20D</th><th>40D</th><th>60D</th><th>TGT</th><th>STOP</th><th>RR</th><th style='text-align:left'>REASON</th></tr></thead>
+    <tbody><tr><td class=numl style='color:var(--muted)'>1</td><td class=sym><span class=ticker>COHR<span class=wk-badge>NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Coherent Corp. Common Stoc</td><td class=num>207.82</td><td class='num green'>+9.9%</td><td class='num green'>+14.2%</td><td class='num green'>+22.1%</td><td class=num>254.61</td><td class='num' style='color:var(--muted)'>176.65</td><td class=num>1.50</td><td class=rs>ATR14%高100 · 60日波动率高99 · 距250日低点高70</td></tr><tr><td class=numl style='color:var(--muted)'>2</td><td class=sym><span class=ticker>SKYD<span class=wk-badge>弹簧·NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Skydance Corporation Class</td><td class=num>7.79</td><td class='num green'>+6.4%</td><td class='num green'>+13.8%</td><td class='num green'>+22.9%</td><td class=num>9.53</td><td class='num' style='color:var(--muted)'>6.72</td><td class=num>1.62</td><td class=rs>ATR14%高98 · 60日波动率高90 · 距250日高点低93</td></tr><tr><td class=numl style='color:var(--muted)'>3</td><td class=sym><span class=ticker>SMTC<span class=wk-badge>NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Semtech Corporation Common</td><td class=num>125.12</td><td class='num green'>+9.0%</td><td class='num green'>+12.8%</td><td class='num green'>+17.8%</td><td class=num>150.35</td><td class='num' style='color:var(--muted)'>106.35</td><td class=num>1.34</td><td class=rs>ATR14%高99 · 距250日低点高86 · 60日波动率高98</td></tr><tr><td class=numl style='color:var(--muted)'>4</td><td class=sym><span class=ticker>DOCN<span class=wk-badge>NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>DigitalOcean Holdings, Inc</td><td class=num>92.00</td><td class='num green'>+6.5%</td><td class='num green'>+10.5%</td><td class='num green'>+18.3%</td><td class=num>115.56</td><td class='num' style='color:var(--muted)'>78.20</td><td class=num>1.71</td><td class=rs>ATR14%高99 · 距250日低点高92 · 60日波动率高97</td></tr><tr><td class=numl style='color:var(--muted)'>5</td><td class=sym><span class=ticker>TEM<span class=wk-badge>弹簧·NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Tempus AI, Inc. Class A Co</td><td class=num>63.81</td><td class='num green'>+4.5%</td><td class='num green'>+10.1%</td><td class='num green'>+15.8%</td><td class=num>82.91</td><td class='num' style='color:var(--muted)'>55.46</td><td class=num>2.29</td><td class=rs>ATR14%高97 · 60日波动率高99 · 距250日低点高54</td></tr><tr><td class=numl style='color:var(--muted)'>6</td><td class=sym><span class=ticker>IREN<span class=wk-badge>NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>IREN Limited Ordinary Shar</td><td class=num>25.51</td><td class='num green'>+9.5%</td><td class='num green'>+9.5%</td><td class='num green'>+14.4%</td><td class=num>31.65</td><td class='num' style='color:var(--muted)'>21.68</td><td class=num>1.61</td><td class=rs>ATR14%高100 · 距250日低点低95 · 60日波动率高100</td></tr><tr><td class=numl style='color:var(--muted)'>7</td><td class=sym><span class=ticker>CRS<span class=wk-badge>NEW</span></span><span class=industry>美国大盘</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Carpenter Technology Corpo</td><td class=num>292.26</td><td class='num green'>+6.4%</td><td class='num green'>+12.7%</td><td class='num green'>+20.9%</td><td class=num>349.77</td><td class='num' style='color:var(--muted)'>264.12</td><td class=num>2.04</td><td class=rs>ATR14%高90 · 距250日低点低95 · 60日波动率高71</td></tr><tr><td class=numl style='color:var(--muted)'>8</td><td class=sym><span class=ticker>SITM<span class=wk-badge>NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>SiTime Corporation Common </td><td class=num>462.72</td><td class='num green'>+4.7%</td><td class='num green'>+7.8%</td><td class='num green'>+11.7%</td><td class=num>573.06</td><td class='num' style='color:var(--muted)'>400.46</td><td class=num>1.77</td><td class=rs>ATR14%高97 · 距250日低点高80 · 60日波动率高99</td></tr><tr><td class=numl style='color:var(--muted)'>9</td><td class=sym><span class=ticker>ASTS<span class=wk-badge>NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>AST SpaceMobile, Inc. Clas</td><td class=num>38.77</td><td class='num green'>+6.6%</td><td class='num green'>+6.2%</td><td class='num green'>+12.9%</td><td class=num>52.01</td><td class='num' style='color:var(--muted)'>32.95</td><td class=num>2.28</td><td class=rs>ATR14%高100 · 距250日低点低95 · 60日波动率高96</td></tr><tr><td class=numl style='color:var(--muted)'>10</td><td class=sym><span class=ticker>TWLO<span class=wk-badge>弹簧·NEW</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Twilio Inc. Class A Common</td><td class=num>253.63</td><td class='num green'>+5.9%</td><td class='num green'>+11.8%</td><td class='num green'>+16.8%</td><td class=num>304.24</td><td class='num' style='color:var(--muted)'>229.65</td><td class=num>2.11</td><td class=rs>ATR14%高90 · 距250日低点高92 · 60日波动率高93</td></tr><tr><td class=numl style='color:var(--muted)'>11</td><td class=sym><span class=ticker>SMCI<span class=wk-badge>弹簧</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Super Micro Computer, Inc.</td><td class=num>33.72</td><td class='num green'>+4.5%</td><td class='num green'>+9.4%</td><td class='num green'>+13.7%</td><td class=num>41.43</td><td class='num' style='color:var(--muted)'>29.76</td><td class=num>1.95</td><td class=rs>ATR14%高95 · 60日波动率高95 · 距250日低点高73</td></tr><tr><td class=numl style='color:var(--muted)'>12</td><td class=sym><span class=ticker>P</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Everpure, Inc. Class A com</td><td class=num>121.20</td><td class='num green'>+5.1%</td><td class='num green'>+10.6%</td><td class='num green'>+15.3%</td><td class=num>152.97</td><td class='num' style='color:var(--muted)'>109.54</td><td class=num>2.72</td><td class=rs>ATR14%高90 · 距250日低点高88 · 60日波动率高91</td></tr><tr><td class=numl style='color:var(--muted)'>13</td><td class=sym><span class=ticker>MDB</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>MongoDB, Inc. Class A Comm</td><td class=num>362.24</td><td class='num green'>+3.0%</td><td class='num green'>+8.9%</td><td class='num green'>+13.1%</td><td class=num>430.66</td><td class='num' style='color:var(--muted)'>324.33</td><td class=num>1.80</td><td class=rs>ATR14%高93 · 60日波动率高94 · 距250日低点高70</td></tr><tr><td class=numl style='color:var(--muted)'>14</td><td class=sym><span class=ticker>CRDO<span class=wk-badge>弹簧</span></span><span class=industry>美国大盘</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Credo Technology Group Hol</td><td class=num>162.77</td><td class='num green'>+1.5%</td><td class='num green'>+4.5%</td><td class='num green'>+10.1%</td><td class=num>218.02</td><td class='num' style='color:var(--muted)'>139.64</td><td class=num>2.39</td><td class=rs>ATR14%高98 · 距250日低点高79 · 60日波动率高98</td></tr><tr><td class=numl style='color:var(--muted)'>15</td><td class=sym><span class=ticker>TSEM</span><span class=industry>半导体</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Tower Semiconductor Ltd. O</td><td class=num>167.71</td><td class='num green'>+3.1%</td><td class='num green'>+6.1%</td><td class='num green'>+10.6%</td><td class=num>206.90</td><td class='num' style='color:var(--muted)'>144.71</td><td class=num>1.70</td><td class=rs>ATR14%高98 · 距250日低点高89 · 60日波动率高96</td></tr><tr><td class=numl style='color:var(--muted)'>16</td><td class=sym><span class=ticker>ATI</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>ATI Inc. Common Stock</td><td class=num>161.84</td><td class='num green'>+6.2%</td><td class='num green'>+12.1%</td><td class='num green'>+16.1%</td><td class=num>187.89</td><td class='num' style='color:var(--muted)'>148.91</td><td class=num>2.02</td><td class=rs>ATR14%高83 · 距250日低点高76 · 60日波动率高58</td></tr><tr><td class=numl style='color:var(--muted)'>17</td><td class=sym><span class=ticker>ENTG</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Entegris, Inc. Common Stoc</td><td class=num>128.31</td><td class='num green'>+4.8%</td><td class='num green'>+9.4%</td><td class='num green'>+13.3%</td><td class=num>148.08</td><td class='num' style='color:var(--muted)'>115.48</td><td class=num>1.54</td><td class=rs>ATR14%高92 · 距250日低点高80 · 60日波动率高90</td></tr><tr><td class=numl style='color:var(--muted)'>18</td><td class=sym><span class=ticker>RVMD<span class=wk-badge>弹簧</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Revolution Medicines, Inc.</td><td class=num>187.69</td><td class='num green'>+8.5%</td><td class='num green'>+17.1%</td><td class='num green'>+22.3%</td><td class=num>213.43</td><td class='num' style='color:var(--muted)'>173.48</td><td class=num>1.81</td><td class=rs>ATR14%高80 · 距250日低点高99 · 60日波动率高57</td></tr><tr><td class=numl style='color:var(--muted)'>19</td><td class=sym><span class=ticker>OKTA<span class=wk-badge>弹簧</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Okta, Inc. Class A Common </td><td class=num>201.33</td><td class='num green'>+4.1%</td><td class='num green'>+7.8%</td><td class='num green'>+11.6%</td><td class=num>252.41</td><td class='num' style='color:var(--muted)'>184.22</td><td class=num>2.99</td><td class=rs>ATR14%高86 · 距250日低点高98 · 60日波动率高96</td></tr><tr><td class=numl style='color:var(--muted)'>20</td><td class=sym><span class=ticker>FLEX</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Flex Ltd. Ordinary Shares</td><td class=num>76.69</td><td class='num green'>+4.0%</td><td class='num green'>+5.8%</td><td class='num green'>+10.6%</td><td class=num>91.99</td><td class='num' style='color:var(--muted)'>66.73</td><td class=num>1.54</td><td class=rs>ATR14%高97 · 60日波动率高84 · 距250日高点低92</td></tr><tr><td class=numl style='color:var(--muted)'>21</td><td class=sym><span class=ticker>GH<span class=wk-badge>弹簧</span></span><span class=industry>医疗健康</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Guardant Health, Inc. Comm</td><td class=num>162.94</td><td class='num green'>+6.8%</td><td class='num green'>+13.7%</td><td class='num green'>+19.5%</td><td class=num>180.15</td><td class='num' style='color:var(--muted)'>150.20</td><td class=num>1.35</td><td class=rs>ATR14%高82 · 距250日低点高91 · 60日波动率高63</td></tr><tr><td class=numl style='color:var(--muted)'>22</td><td class=sym><span class=ticker>NVT</span><span class=industry>公用事业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>nVent Electric plc Ordinar</td><td class=num>127.67</td><td class='num green'>+3.1%</td><td class='num green'>+6.4%</td><td class='num green'>+10.9%</td><td class=num>143.59</td><td class='num' style='color:var(--muted)'>115.37</td><td class=num>1.29</td><td class=rs>ATR14%高91 · 60日波动率高78 · 价格/200日均线低69</td></tr><tr><td class=numl style='color:var(--muted)'>23</td><td class=sym><span class=ticker>LITE</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Lumentum Holdings Inc. Com</td><td class=num>752.54</td><td class='num green'>+6.7%</td><td class='num green'>+12.1%</td><td class='num green'>+14.0%</td><td class=num>885.60</td><td class='num' style='color:var(--muted)'>647.51</td><td class=num>1.27</td><td class=rs>ATR14%高98 · 行业60日高82 · 市值(对数)低72</td></tr><tr><td class=numl style='color:var(--muted)'>24</td><td class=sym><span class=ticker>CRWD<span class=wk-badge>弹簧</span></span><span class=industry>软件</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>CrowdStrike Holdings, Inc.</td><td class=num>237.94</td><td class='num green'>+3.7%</td><td class='num green'>+8.3%</td><td class='num green'>+14.5%</td><td class=num>273.37</td><td class='num' style='color:var(--muted)'>219.77</td><td class=num>1.95</td><td class=rs>ATR14%高81 · 行业60日高82 · 市值(对数)高88</td></tr><tr><td class=numl style='color:var(--muted)'>25</td><td class=sym><span class=ticker>MRVL</span><span class=industry>半导体</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Marvell Technology, Inc. C</td><td class=num>223.47</td><td class='num green'>+8.4%</td><td class='num green'>+15.7%</td><td class='num green'>+22.6%</td><td class=num>257.50</td><td class='num' style='color:var(--muted)'>198.70</td><td class=num>1.37</td><td class=rs>ATR14%高94 · 行业60日高82 · 市值(对数)高85</td></tr><tr><td class=numl style='color:var(--muted)'>26</td><td class=sym><span class=ticker>GGG</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Graco Inc. Common Stock</td><td class=num>69.28</td><td class='num green'>+2.1%</td><td class='num green'>+7.8%</td><td class='num green'>+14.0%</td><td class=num>76.36</td><td class='num' style='color:var(--muted)'>65.87</td><td class=num>2.07</td><td class=rs>市值(对数)低99 · ATR14%高40 · 距250日低点低96</td></tr><tr><td class=numl style='color:var(--muted)'>27</td><td class=sym><span class=ticker>U</span><span class=industry>软件/云服务</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Unity Software Inc. Common</td><td class=num>40.27</td><td class='num green'>+4.8%</td><td class='num green'>+9.9%</td><td class='num green'>+13.5%</td><td class=num>45.43</td><td class='num' style='color:var(--muted)'>37.05</td><td class=num>1.60</td><td class=rs>ATR14%高84 · 距250日低点高92 · 60日波动率高80</td></tr><tr><td class=numl style='color:var(--muted)'>28</td><td class=sym><span class=ticker>TEAM</span><span class=industry>软件</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Atlassian Corporation Clas</td><td class=num>223.16</td><td class='num green'>+2.3%</td><td class='num green'>+5.3%</td><td class='num green'>+8.2%</td><td class=num>267.53</td><td class='num' style='color:var(--muted)'>209.46</td><td class=num>3.24</td><td class=rs>ATR14%高66 · 行业60日高82 · 市值(对数)低81</td></tr><tr><td class=numl style='color:var(--muted)'>29</td><td class=sym><span class=ticker>FROG<span class=wk-badge>弹簧</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>JFrog Ltd. Ordinary Shares</td><td class=num>93.89</td><td class='num green'>+4.9%</td><td class='num green'>+11.0%</td><td class='num green'>+15.6%</td><td class=num>103.65</td><td class='num' style='color:var(--muted)'>85.16</td><td class=num>1.12</td><td class=rs>ATR14%高89 · 距250日低点高95 · 60日波动率高86</td></tr><tr><td class=numl style='color:var(--muted)'>30</td><td class=sym><span class=ticker>MTSI</span><span class=industry>美国大盘</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>MACOM Technology Solutions</td><td class=num>229.73</td><td class='num green'>+1.1%</td><td class='num green'>+3.6%</td><td class='num green'>+7.0%</td><td class=num>264.72</td><td class='num' style='color:var(--muted)'>200.52</td><td class=num>1.20</td><td class=rs>ATR14%高96 · 60日波动率高95 · 距250日低点高65</td></tr></tbody>
   </table></div>
-  <div class="note">20D/40D/60D = 模型预测的峰值涨幅（N 日内最高点口径，不是第 N 天收盘价）。TGT/STOP 来自生产 high/low 模型 + ATR×1.5。REASON 不是 SHAP：它取 LGB 60 日模型增益重要性最高的几个特征，看这只股票当日在该特征上处于横截面高位（高）还是低位（低），数字是偏离中位的分位幅度。</div>
-</section>
+  <div class=sec-note>20D/40D/60D = 预测峰值涨幅（N 日内最高点口径，不是第 N 天收盘价）。TGT/STOP = high/low 模型 + ATR×1.5。REASON 取 LGB 60 日增益重要性最高的几个特征，看该股当日在这几个特征上的横截面分位（高/低 + 偏离中位的幅度），不是 SHAP。</div>
+</div>
 
-<section id="weights">
-  <h2>FEATURE WEIGHTS <small>当前部署 LGB 60 日模型的增益重要性 · 前 10</small></h2>
-  <div class="tw"><table>
-    <thead><tr><th style="text-align:left">特征</th><th style="text-align:left">字段</th><th>占比</th><th style="text-align:left"></th></tr></thead>
-    <tbody><tr><td>ATR14%</td><td class=dim>atr_pct_14</td><td class=num>21.8%</td><td><div class=bar><i style='width:100%'></i></div></td></tr><tr><td>行业60日</td><td class=dim>sec_ret_60d</td><td class=num>16.0%</td><td><div class=bar><i style='width:73%'></i></div></td></tr><tr><td>市值(对数)</td><td class=dim>log_mc</td><td class=num>13.0%</td><td><div class=bar><i style='width:59%'></i></div></td></tr><tr><td>利润率</td><td class=dim>margin</td><td class=num>7.9%</td><td><div class=bar><i style='width:36%'></i></div></td></tr><tr><td>距250日低点</td><td class=dim>dist_low_250</td><td class=num>7.3%</td><td><div class=bar><i style='width:34%'></i></div></td></tr><tr><td>营收增速</td><td class=dim>rev_growth</td><td class=num>6.2%</td><td><div class=bar><i style='width:28%'></i></div></td></tr><tr><td>60日波动率</td><td class=dim>vol_60</td><td class=num>5.7%</td><td><div class=bar><i style='width:26%'></i></div></td></tr><tr><td>行业20日</td><td class=dim>sec_ret_20d</td><td class=num>4.2%</td><td><div class=bar><i style='width:19%'></i></div></td></tr><tr><td>距250日高点</td><td class=dim>dist_high_250</td><td class=num>3.3%</td><td><div class=bar><i style='width:15%'></i></div></td></tr><tr><td>价格/200日均线</td><td class=dim>ma_ratio_200</td><td class=num>3.2%</td><td><div class=bar><i style='width:14%'></i></div></td></tr></tbody>
+<div class="card" id="weights">
+  <div class=ch>FEATURE WEIGHTS <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">部署模型 LGB 60 日增益重要性 · 前 10</span></div>
+  <div class=tw><table>
+    <thead><tr><th style='text-align:left'>特征</th><th style='text-align:left'>字段</th><th>占比</th><th></th></tr></thead>
+    <tbody><tr><td class=industry style='text-align:left;font-size:15px'>ATR14%</td><td class=industry style='text-align:left;font-size:13px'>atr_pct_14</td><td class=num>21.8%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:100%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>行业60日</td><td class=industry style='text-align:left;font-size:13px'>sec_ret_60d</td><td class=num>16.0%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:73%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>市值(对数)</td><td class=industry style='text-align:left;font-size:13px'>log_mc</td><td class=num>13.0%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:59%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>利润率</td><td class=industry style='text-align:left;font-size:13px'>margin</td><td class=num>7.9%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:36%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>距250日低点</td><td class=industry style='text-align:left;font-size:13px'>dist_low_250</td><td class=num>7.3%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:34%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>营收增速</td><td class=industry style='text-align:left;font-size:13px'>rev_growth</td><td class=num>6.2%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:28%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>60日波动率</td><td class=industry style='text-align:left;font-size:13px'>vol_60</td><td class=num>5.7%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:26%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>行业20日</td><td class=industry style='text-align:left;font-size:13px'>sec_ret_20d</td><td class=num>4.2%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:19%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>距250日高点</td><td class=industry style='text-align:left;font-size:13px'>dist_high_250</td><td class=num>3.3%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:15%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>价格/200日均线</td><td class=industry style='text-align:left;font-size:13px'>ma_ratio_200</td><td class=num>3.2%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:14%'></i></div></td></tr></tbody>
   </table></div>
-  <div class="note">这是部署模型（date_max 2026-05-27）自己的权重，不是重训后的口径。重训后权重会变，页面会跟着变。</div>
-</section>
+  <div class=sec-note>这是部署模型（date_max 2026-05-27）自己的权重，不是重训后的口径。</div>
+</div>
 
-<section id="guard">
-  <h2>CLOSE GUARD <small>信号收盘价 vs 面板同日收盘价 · 偏离 &gt;0.5% 记为异常</small></h2>
-  <div class="grid">
-    <div class="card"><div class="k">校验结果</div><div class="v ok">✓ 正常</div><div class="s">892 只对拍 · 面板日 2026-10-22</div></div>
-    <div class="card"><div class="k">偏离 &gt;0.5%</div><div class="v ok">0</div><div class="s">LVS 0.0%, PSO 0.0%, SREA 0.0%</div></div>
-    <div class="card"><div class="k">WHAT CHANGED</div><div class="v" style="font-size:14px">待积累</div><div class="s">存档从今日开始，明日才有对比</div></div>
-  </div>
-  <div class="note">CLOSE GUARD 是护栏不是策略：它只回答「信号用的价和面板的价是不是同一个」，避免盘中 partial 价污染排名。SCALE GUARD（拆股刻度对拍）需要 data/cache 原始缓存，这份快照没有该目录，暂不可用。</div>
-</section>
+<div class="card" id="guard">
+  <div class=ch>GUARDS <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">收盘价对拍 + 变更追踪</span></div>
+  <div class=ms-grid style='grid-template-columns:repeat(4,1fr)'><div class=ms-tile><div class=ms-label>CLOSE GUARD</div><div class='ms-value green'>✓ 正常</div><div class=ms-sub>892 只对拍 · 面板日 2026-10-22</div></div><div class=ms-tile><div class=ms-label>偏离 &gt;0.5%</div><div class='ms-value green'>0</div><div class=ms-sub>最大偏离 0.000%</div></div><div class=ms-tile><div class=ms-label>WHAT CHANGED TODAY</div><div class='ms-value amber'>待积累</div><div class=ms-sub>存档自今日开始，明日才有对比</div></div><div class=ms-tile><div class=ms-label>SCALE GUARD</div><div class='ms-value amber'>不可用</div><div class=ms-sub>缺 data/cache 原始缓存</div></div></div>
+  <div class=sec-note>CLOSE GUARD 只回答「信号价与面板价是不是同一个」，避免盘中 partial 价污染排名。SCALE GUARD（拆股刻度对拍）需要原始缓存目录，本快照没有。</div>
+</div>
 
-<section id="sector">
-  <h2>SECTOR ROTATION <small>研究池前 400 名按行业聚合</small></h2>
-  <div class=secgrid><div class=sec><div class=sh><span class=sn>美国大盘</span><span class=sv>+2.09</span></div><div class=bar><i style='width:100%'></i></div><div class=sm>候选 4 · 可执行 3</div></div><div class=sec><div class=sh><span class=sn>生物</span><span class=sv>+2.02</span></div><div class=bar><i style='width:97%'></i></div><div class=sm>候选 1 · 可执行 1</div></div><div class=sec><div class=sh><span class=sn>软件/云服务</span><span class=sv>+1.85</span></div><div class=bar><i style='width:88%'></i></div><div class=sm>候选 3 · 可执行 1</div></div><div class=sec><div class=sh><span class=sn>半导体</span><span class=sv>+1.65</span></div><div class=bar><i style='width:79%'></i></div><div class=sm>候选 7 · 可执行 3</div></div><div class=sec><div class=sh><span class=sn>工业制造</span><span class=sv>+1.61</span></div><div class=bar><i style='width:77%'></i></div><div class=sm>候选 2 · 可执行 1</div></div><div class=sec><div class=sh><span class=sn>公用事业</span><span class=sv>+1.55</span></div><div class=bar><i style='width:74%'></i></div><div class=sm>候选 2 · 可执行 1</div></div><div class=sec><div class=sh><span class=sn>红利/价值</span><span class=sv>+1.46</span></div><div class=bar><i style='width:70%'></i></div><div class=sm>候选 1 · 可执行 0</div></div><div class=sec><div class=sh><span class=sn>建设</span><span class=sv>+1.33</span></div><div class=bar><i style='width:63%'></i></div><div class=sm>候选 2 · 可执行 0</div></div></div>
-</section>
+<div class="card sr-card" id="sector">
+  <div class=ch>SECTOR ROTATION <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">研究池前 400 名按行业聚合</span></div>
+  <div class=sr-grid style='grid-template-columns:repeat(4,1fr)'><div class=sr-item><div class=k>美国大盘</div><div class='v green'>+2.09</div><div class=bar style='margin-top:8px'><i style='width:100%'></i></div><div class=m>候选 4 · 可执行 3</div></div><div class=sr-item><div class=k>生物</div><div class='v green'>+2.02</div><div class=bar style='margin-top:8px'><i style='width:97%'></i></div><div class=m>候选 1 · 可执行 1</div></div><div class=sr-item><div class=k>软件/云服务</div><div class='v green'>+1.85</div><div class=bar style='margin-top:8px'><i style='width:88%'></i></div><div class=m>候选 3 · 可执行 1</div></div><div class=sr-item><div class=k>半导体</div><div class='v green'>+1.65</div><div class=bar style='margin-top:8px'><i style='width:79%'></i></div><div class=m>候选 7 · 可执行 3</div></div><div class=sr-item><div class=k>工业制造</div><div class='v green'>+1.61</div><div class=bar style='margin-top:8px'><i style='width:77%'></i></div><div class=m>候选 2 · 可执行 1</div></div><div class=sr-item><div class=k>公用事业</div><div class='v green'>+1.55</div><div class=bar style='margin-top:8px'><i style='width:74%'></i></div><div class=m>候选 2 · 可执行 1</div></div><div class=sr-item><div class=k>红利/价值</div><div class='v green'>+1.46</div><div class=bar style='margin-top:8px'><i style='width:70%'></i></div><div class=m>候选 1 · 可执行 0</div></div><div class=sr-item><div class=k>建设</div><div class='v green'>+1.33</div><div class=bar style='margin-top:8px'><i style='width:63%'></i></div><div class=m>候选 2 · 可执行 0</div></div></div>
+  <div class=sec-note>行业标签取自基本面缓存的 yfinance industry/sector，缺失时按名称启发式归类（与生产渲染器同一套逻辑）。</div>
+</div>
 
-<section id="phase">
-  <h2>WYCKOFF PHASES <small>威科夫阶段分布 · 只作观察不参与打分</small></h2>
-  <div class=tw><table><thead><tr><th style='text-align:left'>威科夫阶段</th><th>只数</th><th>占比</th><th style='text-align:left'></th></tr></thead><tbody><tr><td>Unknown</td><td class=num>440</td><td class=num>49.3%</td><td><div class=bar><i style='width:49%'></i></div></td></tr><tr><td>Markup</td><td class=num>362</td><td class=num>40.6%</td><td><div class=bar><i style='width:41%'></i></div></td></tr><tr><td>Automatic Rally</td><td class=num>50</td><td class=num>5.6%</td><td><div class=bar><i style='width:6%'></i></div></td></tr><tr><td>Secondary Test</td><td class=num>29</td><td class=num>3.3%</td><td><div class=bar><i style='width:3%'></i></div></td></tr><tr><td>Distribution</td><td class=num>9</td><td class=num>1.0%</td><td><div class=bar><i style='width:1%'></i></div></td></tr><tr><td>Markdown</td><td class=num>2</td><td class=num>0.2%</td><td><div class=bar><i style='width:0%'></i></div></td></tr></tbody></table></div>
-  <div class="note">阶段来自 output/wyckoff_history.csv（wyckoff_history.py 生成）。历史上该过滤 9 起点复核不稳健，生产默认关，仅作观察清单。</div>
-</section>
+<div class="card" id="phase">
+  <div class=ch>WYCKOFF PHASES <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">阶段分布 · 只作观察不参与打分</span></div>
+  <div class=tw><table><thead><tr><th style='text-align:left'>威科夫阶段</th><th>只数</th><th>占比</th><th></th></tr></thead><tbody><tr><td class=industry style='text-align:left;font-size:15px'>Unknown</td><td class=numl>440</td><td class=numl>49.3%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:49%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>Markup</td><td class=numl>362</td><td class=numl>40.6%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:41%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>Automatic Rally</td><td class=numl>50</td><td class=numl>5.6%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:6%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>Secondary Test</td><td class=numl>29</td><td class=numl>3.3%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:3%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>Distribution</td><td class=numl>9</td><td class=numl>1.0%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:1%'></i></div></td></tr><tr><td class=industry style='text-align:left;font-size:15px'>Markdown</td><td class=numl>2</td><td class=numl>0.2%</td><td><div class=bar style='width:180px;margin:0 auto'><i style='width:0%'></i></div></td></tr></tbody></table></div>
+  <div class=sec-note>阶段来自 output/wyckoff_history.csv。该过滤 9 起点复核不稳健，生产默认关。</div>
+</div>
 
-<section id="burst">
-  <h2>BURST PROBABILITY <small>分数桶 × 10/20 日内涨超 5% 的经验概率</small></h2>
-  <div class=tw><table><thead><tr><th>分数桶</th><th>10 日内涨 >5% 概率</th><th>20 日内涨 >5% 概率</th></tr></thead><tbody><tr><td class=num>high</td><td class=num>0.0%</td><td class=num>1.0%</td></tr><tr><td class=num>high</td><td class=num>1.0%</td><td class=num>4459.0%</td></tr><tr><td class=num>high</td><td class=num>2.0%</td><td class=num>19701.0%</td></tr><tr><td class=num>high</td><td class=num>3.0%</td><td class=num>35862.0%</td></tr><tr><td class=num>high</td><td class=num>4.0%</td><td class=num>47468.0%</td></tr><tr><td class=num>high</td><td class=num>5.0%</td><td class=num>46983.0%</td></tr><tr><td class=num>high</td><td class=num>6.0%</td><td class=num>33734.0%</td></tr><tr><td class=num>high</td><td class=num>7.0%</td><td class=num>18303.0%</td></tr><tr><td class=num>high</td><td class=num>8.0%</td><td class=num>4211.0%</td></tr><tr><td class=num>high</td><td class=num>9.0%</td><td class=num>726.0%</td></tr><tr><td class=num>low</td><td class=num>0.0%</td><td class=num>7.0%</td></tr><tr><td class=num>low</td><td class=num>1.0%</td><td class=num>11013.0%</td></tr><tr><td class=num>low</td><td class=num>2.0%</td><td class=num>64549.0%</td></tr><tr><td class=num>low</td><td class=num>3.0%</td><td class=num>136034.0%</td></tr><tr><td class=num>low</td><td class=num>4.0%</td><td class=num>204669.0%</td></tr><tr><td class=num>low</td><td class=num>5.0%</td><td class=num>209804.0%</td></tr><tr><td class=num>low</td><td class=num>6.0%</td><td class=num>141331.0%</td></tr><tr><td class=num>low</td><td class=num>7.0%</td><td class=num>63867.0%</td></tr><tr><td class=num>low</td><td class=num>8.0%</td><td class=num>9730.0%</td></tr><tr><td class=num>low</td><td class=num>9.0%</td><td class=num>1368.0%</td></tr></tbody></table></div>
-  <div class="note">用于期权到期日选择（事件层信号），不参与选股打分。</div>
-</section>
+<div class="card" id="burst">
+  <div class=ch>BURST PROBABILITY <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">分数桶 × 10/20 日内涨超 5% 的经验概率</span></div>
+  <div class=tw><table><thead><tr><th>分数桶</th><th>10 日内涨 &gt;5% 概率</th><th>20 日内涨 &gt;5% 概率</th></tr></thead><tbody><tr><td class=numl>high</td><td class=num>0.0%</td><td class=num>1.0%</td></tr><tr><td class=numl>high</td><td class=num>1.0%</td><td class=num>4459.0%</td></tr><tr><td class=numl>high</td><td class=num>2.0%</td><td class=num>19701.0%</td></tr><tr><td class=numl>high</td><td class=num>3.0%</td><td class=num>35862.0%</td></tr><tr><td class=numl>high</td><td class=num>4.0%</td><td class=num>47468.0%</td></tr><tr><td class=numl>high</td><td class=num>5.0%</td><td class=num>46983.0%</td></tr><tr><td class=numl>high</td><td class=num>6.0%</td><td class=num>33734.0%</td></tr><tr><td class=numl>high</td><td class=num>7.0%</td><td class=num>18303.0%</td></tr><tr><td class=numl>high</td><td class=num>8.0%</td><td class=num>4211.0%</td></tr><tr><td class=numl>high</td><td class=num>9.0%</td><td class=num>726.0%</td></tr><tr><td class=numl>low</td><td class=num>0.0%</td><td class=num>7.0%</td></tr><tr><td class=numl>low</td><td class=num>1.0%</td><td class=num>11013.0%</td></tr><tr><td class=numl>low</td><td class=num>2.0%</td><td class=num>64549.0%</td></tr><tr><td class=numl>low</td><td class=num>3.0%</td><td class=num>136034.0%</td></tr><tr><td class=numl>low</td><td class=num>4.0%</td><td class=num>204669.0%</td></tr><tr><td class=numl>low</td><td class=num>5.0%</td><td class=num>209804.0%</td></tr><tr><td class=numl>low</td><td class=num>6.0%</td><td class=num>141331.0%</td></tr><tr><td class=numl>low</td><td class=num>7.0%</td><td class=num>63867.0%</td></tr><tr><td class=numl>low</td><td class=num>8.0%</td><td class=num>9730.0%</td></tr><tr><td class=numl>low</td><td class=num>9.0%</td><td class=num>1368.0%</td></tr></tbody></table></div>
+  <div class=sec-note>用于期权到期日选择（事件层），不参与选股打分。</div>
+</div>
 
-<section id="risk">
-  <h2>RISK RADAR <small>risk_flags 计数</small></h2>
-  <div class=grid><div class=card><div class=k>综合分为负</div><div class=v>498</div><div class=s>只</div></div><div class=card><div class=k>60日预测为负</div><div class=v>92</div><div class=s>只</div></div><div class=card><div class=k>深坑风险</div><div class=v>80</div><div class=s>只</div></div><div class=card><div class=k>市值数据异常</div><div class=v>2</div><div class=s>只</div></div></div>
-</section>
+<div class="card rr-card" id="risk">
+  <div class=ch>RISK RADAR <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">risk_flags 计数</span></div>
+  <div class=ms-grid style='grid-template-columns:repeat(3,1fr)'><div class=ms-tile><div class=ms-label>综合分为负</div><div class='ms-value red'>498</div><div class=ms-sub>只</div></div><div class=ms-tile><div class=ms-label>60日预测为负</div><div class='ms-value red'>92</div><div class=ms-sub>只</div></div><div class=ms-tile><div class=ms-label>深坑风险</div><div class='ms-value red'>80</div><div class=ms-sub>只</div></div></div><div class=ms-grid style='grid-template-columns:repeat(3,1fr)'><div class=ms-tile><div class=ms-label>市值数据异常</div><div class='ms-value red'>2</div><div class=ms-sub>只</div></div></div>
+  <div class=sec-note>标记只说明「有风险字段」，不等于否决；可执行判定看 MARKET STATE 的可执行数。</div>
+</div>
 
-<section id="avoid">
-  <h2>回避名单 · 排名后 20 <small>不建议做多</small></h2>
-  <div class="tw"><table>
-    <thead><tr><th>#</th><th>CODE</th><th>NAME</th><th>CLOSE</th><th>20D</th><th>40D</th><th>60D</th><th>TGT</th><th>STOP</th><th>RR</th></tr></thead>
-    <tbody><tr><td class=rk>1</td><td class=cd>COIN<div class=ind>金融</div></td><td class=nm>Coinbase Global, Inc. Clas</td><td class=num>169.09</td><td class=num>+1.8%</td><td class=num>-0.8%</td><td class=num>-2.2%</td><td class=num>214.35</td><td class=num dim>152.88</td><td class=num>2.79</td><td class=rs>—</td></tr><tr><td class=rk>2</td><td class=cd>MU<div class=ind>半导体</div></td><td class=nm>Micron Technology, Inc. Co</td><td class=num>856.49</td><td class=num>-0.0%</td><td class=num>-0.1%</td><td class=num>-0.9%</td><td class=num>976.39</td><td class=num dim>783.28</td><td class=num>1.64</td><td class=rs>—</td></tr><tr><td class=rk>3</td><td class=cd>ALAB<div class=ind>半导体</div></td><td class=nm>Astera Labs, Inc. Common S</td><td class=num>257.82</td><td class=num>-5.8%</td><td class=num>-8.8%</td><td class=num>-8.0%</td><td class=num>290.56</td><td class=num dim>222.38</td><td class=num>0.92</td><td class=rs>—</td></tr><tr><td class=rk>4</td><td class=cd>ELV<div class=ind>医保</div></td><td class=nm>Elevance Health, Inc. Comm</td><td class=num>445.28</td><td class=num>-0.8%</td><td class=num>-1.0%</td><td class=num>-0.7%</td><td class=num>509.87</td><td class=num dim>427.53</td><td class=num>3.64</td><td class=rs>—</td></tr><tr><td class=rk>5</td><td class=cd>PLTR<div class=ind>软件</div></td><td class=nm>Palantir Technologies Inc.</td><td class=num>196.19</td><td class=num>-2.4%</td><td class=num>-2.1%</td><td class=num>+0.2%</td><td class=num>212.20</td><td class=num dim>183.85</td><td class=num>1.30</td><td class=rs>—</td></tr><tr><td class=rk>6</td><td class=cd>VST<div class=ind>综合行业</div></td><td class=nm>Vistra Corp. Common Stock</td><td class=num>140.83</td><td class=num>+0.1%</td><td class=num>-0.2%</td><td class=num>+0.3%</td><td class=num>160.69</td><td class=num dim>128.66</td><td class=num>1.63</td><td class=rs>—</td></tr><tr><td class=rk>7</td><td class=cd>TER<div class=ind>半导体</div></td><td class=nm>Teradyne, Inc. Common Stoc</td><td class=num>308.75</td><td class=num>-2.6%</td><td class=num>-2.4%</td><td class=num>-0.7%</td><td class=num>350.83</td><td class=num dim>275.66</td><td class=num>1.27</td><td class=rs>—</td></tr><tr><td class=rk>8</td><td class=cd>CMCSA<div class=ind>综合行业</div></td><td class=nm>Comcast Corporation Class </td><td class=num>22.84</td><td class=num>-0.9%</td><td class=num>-0.9%</td><td class=num>-0.8%</td><td class=num>26.18</td><td class=num dim>21.81</td><td class=num>3.24</td><td class=rs>—</td></tr><tr><td class=rk>9</td><td class=cd>GILD<div class=ind>制药</div></td><td class=nm>Gilead Sciences, Inc. Comm</td><td class=num>157.19</td><td class=num>-0.2%</td><td class=num>-0.1%</td><td class=num>+0.3%</td><td class=num>173.68</td><td class=num dim>151.23</td><td class=num>2.76</td><td class=rs>—</td></tr><tr><td class=rk>10</td><td class=cd>BSX<div class=ind>医疗器械</div></td><td class=nm>Boston Scientific Corporat</td><td class=num>46.01</td><td class=num>-2.1%</td><td class=num>-2.7%</td><td class=num>-1.6%</td><td class=num>49.36</td><td class=num dim>44.08</td><td class=num>1.74</td><td class=rs>—</td></tr><tr><td class=rk>11</td><td class=cd>HCA<div class=ind>医疗健康</div></td><td class=nm>HCA Healthcare, Inc. Commo</td><td class=num>467.31</td><td class=num>-0.5%</td><td class=num>-0.5%</td><td class=num>+0.6%</td><td class=num>518.10</td><td class=num dim>449.73</td><td class=num>2.89</td><td class=rs>—</td></tr><tr><td class=rk>12</td><td class=cd>IDXX<div class=ind>综合行业</div></td><td class=nm>IDEXX Laboratories, Inc. C</td><td class=num>566.76</td><td class=num>-0.8%</td><td class=num>-1.1%</td><td class=num>-0.4%</td><td class=num>616.12</td><td class=num dim>547.05</td><td class=num>2.50</td><td class=rs>—</td></tr><tr><td class=rk>13</td><td class=cd>CRH<div class=ind>综合行业</div></td><td class=nm>CRH PLC Ordinary Shares</td><td class=num>86.43</td><td class=num>-1.3%</td><td class=num>-1.3%</td><td class=num>-1.6%</td><td class=num>97.62</td><td class=num dim>83.04</td><td class=num>3.30</td><td class=rs>—</td></tr><tr><td class=rk>14</td><td class=cd>MDT<div class=ind>医疗器械</div></td><td class=nm>Medtronic plc. Ordinary Sh</td><td class=num>96.59</td><td class=num>-0.0%</td><td class=num>+0.3%</td><td class=num>+1.0%</td><td class=num>104.95</td><td class=num dim>92.89</td><td class=num>2.26</td><td class=rs>—</td></tr><tr><td class=rk>15</td><td class=cd>INFY<div class=ind>IT服务</div></td><td class=nm>Infosys Limited American D</td><td class=num>13.22</td><td class=num>-0.3%</td><td class=num>+0.1%</td><td class=num>-0.3%</td><td class=num>15.27</td><td class=num dim>12.60</td><td class=num>3.31</td><td class=rs>—</td></tr><tr><td class=rk>16</td><td class=cd>WDC<span class=fl>弹簧</span><div class=ind>综合行业</div></td><td class=nm>Western Digital Corporatio</td><td class=num>354.19</td><td class=num>-1.2%</td><td class=num>-1.4%</td><td class=num>+0.3%</td><td class=num>409.41</td><td class=num dim>316.58</td><td class=num>1.47</td><td class=rs>—</td></tr><tr><td class=rk>17</td><td class=cd>COR<div class=ind>综合行业</div></td><td class=nm>Cencora, Inc. Common Stock</td><td class=num>338.48</td><td class=num>+0.0%</td><td class=num>+0.4%</td><td class=num>+1.0%</td><td class=num>381.44</td><td class=num dim>327.95</td><td class=num>4.08</td><td class=rs>—</td></tr><tr><td class=rk>18</td><td class=cd>SNY<div class=ind>制药</div></td><td class=nm>Sanofi ADS</td><td class=num>41.96</td><td class=num>+0.1%</td><td class=num>+0.5%</td><td class=num>+1.1%</td><td class=num>45.45</td><td class=num dim>40.66</td><td class=num>2.68</td><td class=rs>—</td></tr><tr><td class=rk>19</td><td class=cd>EW<div class=ind>医疗器械</div></td><td class=nm>Edwards Lifesciences Corpo</td><td class=num>90.09</td><td class=num>+0.1%</td><td class=num>+0.4%</td><td class=num>+1.1%</td><td class=num>95.75</td><td class=num dim>87.04</td><td class=num>1.86</td><td class=rs>—</td></tr><tr><td class=rk>20</td><td class=cd>CVS<div class=ind>医保</div></td><td class=nm>CVS Health Corporation Com</td><td class=num>94.48</td><td class=num>+0.1%</td><td class=num>+0.4%</td><td class=num>+1.0%</td><td class=num>104.03</td><td class=num dim>91.14</td><td class=num>2.86</td><td class=rs>—</td></tr></tbody>
+<div class="card" id="avoid">
+  <div class=ch>AVOID LIST · 排名后 20 <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">不建议做多</span></div>
+  <div class=tw><table>
+    <thead><tr><th>#</th><th>CODE</th><th>NAME</th><th>CLOSE</th><th>20D</th><th>40D</th><th>60D</th><th>TGT</th><th>STOP</th><th>RR</th><th style='text-align:left'>REASON</th></tr></thead>
+    <tbody><tr><td class=numl style='color:var(--muted)'>1</td><td class=sym><span class=ticker>COIN</span><span class=industry>金融</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Coinbase Global, Inc. Clas</td><td class=num>169.09</td><td class='num green'>+1.8%</td><td class='num red'>-0.8%</td><td class='num red'>-2.2%</td><td class=num>214.35</td><td class='num' style='color:var(--muted)'>152.88</td><td class=num>2.79</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>2</td><td class=sym><span class=ticker>MU</span><span class=industry>半导体</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Micron Technology, Inc. Co</td><td class=num>856.49</td><td class='num red'>-0.0%</td><td class='num red'>-0.1%</td><td class='num red'>-0.9%</td><td class=num>976.39</td><td class='num' style='color:var(--muted)'>783.28</td><td class=num>1.64</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>3</td><td class=sym><span class=ticker>ALAB</span><span class=industry>半导体</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Astera Labs, Inc. Common S</td><td class=num>257.82</td><td class='num red'>-5.8%</td><td class='num red'>-8.8%</td><td class='num red'>-8.0%</td><td class=num>290.56</td><td class='num' style='color:var(--muted)'>222.38</td><td class=num>0.92</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>4</td><td class=sym><span class=ticker>ELV</span><span class=industry>医保</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Elevance Health, Inc. Comm</td><td class=num>445.28</td><td class='num red'>-0.8%</td><td class='num red'>-1.0%</td><td class='num red'>-0.7%</td><td class=num>509.87</td><td class='num' style='color:var(--muted)'>427.53</td><td class=num>3.64</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>5</td><td class=sym><span class=ticker>PLTR</span><span class=industry>软件</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Palantir Technologies Inc.</td><td class=num>196.19</td><td class='num red'>-2.4%</td><td class='num red'>-2.1%</td><td class='num green'>+0.2%</td><td class=num>212.20</td><td class='num' style='color:var(--muted)'>183.85</td><td class=num>1.30</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>6</td><td class=sym><span class=ticker>VST</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Vistra Corp. Common Stock</td><td class=num>140.83</td><td class='num green'>+0.1%</td><td class='num red'>-0.2%</td><td class='num green'>+0.3%</td><td class=num>160.69</td><td class='num' style='color:var(--muted)'>128.66</td><td class=num>1.63</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>7</td><td class=sym><span class=ticker>TER</span><span class=industry>半导体</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Teradyne, Inc. Common Stoc</td><td class=num>308.75</td><td class='num red'>-2.6%</td><td class='num red'>-2.4%</td><td class='num red'>-0.7%</td><td class=num>350.83</td><td class='num' style='color:var(--muted)'>275.66</td><td class=num>1.27</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>8</td><td class=sym><span class=ticker>CMCSA</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Comcast Corporation Class </td><td class=num>22.84</td><td class='num red'>-0.9%</td><td class='num red'>-0.9%</td><td class='num red'>-0.8%</td><td class=num>26.18</td><td class='num' style='color:var(--muted)'>21.81</td><td class=num>3.24</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>9</td><td class=sym><span class=ticker>GILD</span><span class=industry>制药</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Gilead Sciences, Inc. Comm</td><td class=num>157.19</td><td class='num red'>-0.2%</td><td class='num red'>-0.1%</td><td class='num green'>+0.3%</td><td class=num>173.68</td><td class='num' style='color:var(--muted)'>151.23</td><td class=num>2.76</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>10</td><td class=sym><span class=ticker>BSX</span><span class=industry>医疗器械</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Boston Scientific Corporat</td><td class=num>46.01</td><td class='num red'>-2.1%</td><td class='num red'>-2.7%</td><td class='num red'>-1.6%</td><td class=num>49.36</td><td class='num' style='color:var(--muted)'>44.08</td><td class=num>1.74</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>11</td><td class=sym><span class=ticker>HCA</span><span class=industry>医疗健康</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>HCA Healthcare, Inc. Commo</td><td class=num>467.31</td><td class='num red'>-0.5%</td><td class='num red'>-0.5%</td><td class='num green'>+0.6%</td><td class=num>518.10</td><td class='num' style='color:var(--muted)'>449.73</td><td class=num>2.89</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>12</td><td class=sym><span class=ticker>IDXX</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>IDEXX Laboratories, Inc. C</td><td class=num>566.76</td><td class='num red'>-0.8%</td><td class='num red'>-1.1%</td><td class='num red'>-0.4%</td><td class=num>616.12</td><td class='num' style='color:var(--muted)'>547.05</td><td class=num>2.50</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>13</td><td class=sym><span class=ticker>CRH</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>CRH PLC Ordinary Shares</td><td class=num>86.43</td><td class='num red'>-1.3%</td><td class='num red'>-1.3%</td><td class='num red'>-1.6%</td><td class=num>97.62</td><td class='num' style='color:var(--muted)'>83.04</td><td class=num>3.30</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>14</td><td class=sym><span class=ticker>MDT</span><span class=industry>医疗器械</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Medtronic plc. Ordinary Sh</td><td class=num>96.59</td><td class='num red'>-0.0%</td><td class='num green'>+0.3%</td><td class='num green'>+1.0%</td><td class=num>104.95</td><td class='num' style='color:var(--muted)'>92.89</td><td class=num>2.26</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>15</td><td class=sym><span class=ticker>INFY</span><span class=industry>IT服务</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Infosys Limited American D</td><td class=num>13.22</td><td class='num red'>-0.3%</td><td class='num green'>+0.1%</td><td class='num red'>-0.3%</td><td class=num>15.27</td><td class='num' style='color:var(--muted)'>12.60</td><td class=num>3.31</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>16</td><td class=sym><span class=ticker>WDC<span class=wk-badge>弹簧</span></span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Western Digital Corporatio</td><td class=num>354.19</td><td class='num red'>-1.2%</td><td class='num red'>-1.4%</td><td class='num green'>+0.3%</td><td class=num>409.41</td><td class='num' style='color:var(--muted)'>316.58</td><td class=num>1.47</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>17</td><td class=sym><span class=ticker>COR</span><span class=industry>综合行业</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Cencora, Inc. Common Stock</td><td class=num>338.48</td><td class='num green'>+0.0%</td><td class='num green'>+0.4%</td><td class='num green'>+1.0%</td><td class=num>381.44</td><td class='num' style='color:var(--muted)'>327.95</td><td class=num>4.08</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>18</td><td class=sym><span class=ticker>SNY</span><span class=industry>制药</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Sanofi ADS</td><td class=num>41.96</td><td class='num green'>+0.1%</td><td class='num green'>+0.5%</td><td class='num green'>+1.1%</td><td class=num>45.45</td><td class='num' style='color:var(--muted)'>40.66</td><td class=num>2.68</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>19</td><td class=sym><span class=ticker>EW</span><span class=industry>医疗器械</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>Edwards Lifesciences Corpo</td><td class=num>90.09</td><td class='num green'>+0.1%</td><td class='num green'>+0.4%</td><td class='num green'>+1.1%</td><td class=num>95.75</td><td class='num' style='color:var(--muted)'>87.04</td><td class=num>1.86</td><td class=rs>—</td></tr><tr><td class=numl style='color:var(--muted)'>20</td><td class=sym><span class=ticker>CVS</span><span class=industry>医保</span></td><td class=industry style='text-align:left;max-width:240px;margin:0'>CVS Health Corporation Com</td><td class=num>94.48</td><td class='num green'>+0.1%</td><td class='num green'>+0.4%</td><td class='num green'>+1.0%</td><td class=num>104.03</td><td class='num' style='color:var(--muted)'>91.14</td><td class=num>2.86</td><td class=rs>—</td></tr></tbody>
   </table></div>
-</section>
+</div>
 
-<section id="model">
-  <h2>MODEL <small>当前部署口径</small></h2>
-  <div class="grid">
-    <div class="card"><div class="k">训练截止</div><div class="v">2026-05-27</div><div class="s">落后 148 天</div></div>
-    <div class="card"><div class="k">特征数</div><div class="v">35</div><div class="s">生产 swing 特征集</div></div>
-    <div class="card"><div class="k">排序信号</div><div class="v">ENS 60</div><div class="s">逐日 rank(MLP)+rank(LGB)</div></div>
-    <div class="card"><div class="k">OOS 面板</div><div class="v ok">1,062,740</div><div class="s">行 · 5 折 walk-forward</div></div>
-  </div>
-  <div class="flag">⚠ 部署模型训练截止 <b>2026-05-27</b>，面板已到 <b>2026-10-22</b>。这批排名来自旧模型，重训前请当参考。OOS 面板与冠军曲线是本轮重跑产物（2026-10-23 20:41），与生产那台的数字不必一致。</div>
-</section>
+<div class="card" id="model">
+  <div class=ch>MODEL <span style="font-size:13px;font-weight:400;letter-spacing:0;opacity:.75;margin-left:12px">当前部署口径</span></div>
+  <div class=ms-grid style='grid-template-columns:repeat(4,1fr)'><div class=ms-tile><div class=ms-label>训练截止</div><div class='ms-value amber'>2026-05-27</div><div class=ms-sub>落后 148 天</div></div><div class=ms-tile><div class=ms-label>特征数</div><div class='ms-value '>35</div><div class=ms-sub>生产 swing 特征集</div></div><div class=ms-tile><div class=ms-label>排序信号</div><div class='ms-value '>ENS 60</div><div class=ms-sub>逐日 rank(MLP)+rank(LGB)</div></div><div class=ms-tile><div class=ms-label>OOS 面板</div><div class='ms-value green'>1,062,740</div><div class=ms-sub>行 · 5 折 walk-forward</div></div></div>
+  <div class=flag>⚠ 部署模型训练截止 <b>2026-05-27</b>，面板已到 <b>2026-10-22</b>。这批排名来自旧模型，重训前请当参考。OOS 面板与冠军曲线是本轮重跑产物（2026-10-23 20:46），与生产机上的数字不必一致。</div>
+</div>
 
-<footer>
-数据来源：本机 deep ltrading 生产链实测输出（data/panel.parquet 961 只池 / output/signals_2026-10-22.csv / data/oos_earnings.parquet / data/champion_equity.csv）。<br>
-本页只做研究参考，不构成投资建议；不含任何账户与持仓数据。
-</footer>
-</div></body></html>
+<div class=foot>
+数据来源：本机 deep ltrading 生产链实测输出（data/panel.parquet、output/signals_2026-10-22.csv、data/oos_earnings.parquet、data/champion_equity.csv）。<br>
+本页只做研究参考，不构成投资建议；不含任何账户与持仓数据。样式复用 src/render_html.py 的生产样式表。
+</div>
+</body></html>
